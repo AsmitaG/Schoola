@@ -1,4 +1,4 @@
-package savysource.selenium.tests;
+package schoola.selenium.tests;
 
 import org.testng.annotations.Test;
 

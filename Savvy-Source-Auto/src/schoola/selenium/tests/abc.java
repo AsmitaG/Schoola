@@ -1,4 +1,4 @@
-package savysource.selenium.tests;
+package schoola.selenium.tests;
 
 public class abc {
 

@@ -1,9 +1,9 @@
-package savysource.selenium.Base;
+package schoola.selenium.Base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import savysource.selenium.Helpers.BrowserHelper;
+import schoola.selenium.Helpers.BrowserHelper;
 
 public class BaseSelenium {
   public WebDriver driver;

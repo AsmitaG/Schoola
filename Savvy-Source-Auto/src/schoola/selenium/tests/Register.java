@@ -1,11 +1,11 @@
-package savysource.selenium.tests;
+package schoola.selenium.tests;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-import savysource.selenium.Base.BaseSelenium;
-import savysource.selenium.Helpers.BrowserHelper;
-import savysource.selenium.Helpers.LoginHelpers;
+import schoola.selenium.Base.BaseSelenium;
+import schoola.selenium.Helpers.BrowserHelper;
+import schoola.selenium.Helpers.LoginHelpers;
 
 public class Register extends BaseSelenium {
 	BrowserHelper browserHelper=new BrowserHelper();

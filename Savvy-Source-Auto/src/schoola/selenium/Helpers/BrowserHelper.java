@@ -1,4 +1,4 @@
-package savysource.selenium.Helpers;
+package schoola.selenium.Helpers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
