@@ -30,9 +30,14 @@ public void gotoReferralLink(WebDriver driver){
 	driver.get("http://stage.schoola.com/stitch/referral");
 }
 
+public void gotoFeaturedSchool(WebDriver driver){
+	driver.get("http://stage.schoola.com/schools/yick-wo-elementary-san-francisco-ca");
+}
 
 
-
+public void gotoStandardSchool(WebDriver driver){
+	driver.get("http://stage.schoola.com/schools/devonshire-preschool-infant-care-chatsworth-ca");
+}
 
 
 
