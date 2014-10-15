@@ -25,4 +25,15 @@ driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(4) a img"))
 public void gotoSchool(WebDriver driver){
 driver.findElement(By.linkText("Schools")).click();
 }
+
+public void gotoReferralLink(WebDriver driver){
+	driver.get("http://stage.schoola.com/stitch/referral");
+}
+
+
+
+
+
+
+
 }
