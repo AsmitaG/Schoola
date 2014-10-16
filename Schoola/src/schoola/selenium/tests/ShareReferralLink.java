@@ -27,22 +27,21 @@ public class ShareReferralLink extends BaseSelenium  {
 		loginHelper.login(driver);
 	}
 	
-  @Test
-  public void ShareReferralOnFacebook() throws InterruptedException {
+	@Test
+	public void ShareReferralOnFacebook() throws InterruptedException {
 	  navHelper.gotoReferralLink(driver);
 	  socialnwHelper.goToShareOnFacebook_button(driver);
 	  	 
 	  socialnwHelper.shareOnFacebook(driver);
-	  String FBUrl = socialnwHelper.Get_SharedFacebookUrl(driver);	 
+	  String FBUrl = socialnwHelper.Get_SharedFacebookUrl(driver);	
 	  System.out.println(" Shared FB URL : "+FBUrl);
-	  
-	  softAssert.assertTrue(FBUrl.contains("utm_source=facebook") , "Shared Facebook URL  does not contain correct utm_source parameter value");
-	  Reporter.log("Shared Facebook URL  does not contain correct utm_source parameter value");
+	 
+	  softAssert.assertTrue(FBUrl.contains("utm_source=facebook") , "Shared Facebook URL  does not contain correct utm_source parameter value");	  
 	  softAssert.assertTrue(FBUrl.contains("utm_medium=referral") , "Shared Facebook URL  does not contain correct utm_medium parameter value");
-	  Reporter.log("Shared Facebook URL  does not contain correct utm_medium parameter value");
 	  softAssert.assertTrue(FBUrl.contains("utm_campaign=share") , "Shared Facebook URL  does not contain correct utm_campaign parameter");
-	  Reporter.log("Shared Facebook URL  does not contain correct utm_campaign parameter value");
+	 
 	  softAssert.assertAll();
+	
 	  
   }
   
