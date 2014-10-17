@@ -39,6 +39,8 @@ public void gotoStandardSchool(WebDriver driver){
 	driver.get("http://stage.schoola.com/schools/devonshire-preschool-infant-care-chatsworth-ca");
 }
 
-
+public void gotohome(WebDriver driver){
+	driver.get("http://stage.schoola.com");
+}
 
 }
