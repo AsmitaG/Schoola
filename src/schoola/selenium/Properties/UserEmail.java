@@ -10,6 +10,8 @@ public class UserEmail {
 	 * @param args
 	 */
 		Properties prop = new Properties();
+		private String userfname;
+		private String userlname;
 		private String schoolaemail;
 		private String schoolapwd;
 		private String schemaildomain;
@@ -29,7 +31,17 @@ public class UserEmail {
 				e.printStackTrace();
 			} 	
 		}
-				
+		
+		public String get_userfname() {
+			userfname = prop.getProperty("userfname");
+			return userfname;
+		}
+		
+		public String get_userlname() {
+			userlname = prop.getProperty("userlname");
+			return userlname;
+		}
+		
 		public String get_schoolaemail() {
 			schoolaemail = prop.getProperty("schoolaemail");
 			return schoolaemail;
