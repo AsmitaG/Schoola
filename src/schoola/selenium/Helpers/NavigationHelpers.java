@@ -55,5 +55,8 @@ public void hoverOnMenu(WebDriver driver,String menu){
     Builder.moveToElement(hover).build().perform();
 }
 
+public void goToGirlsPreSchoola(WebDriver driver){
+	driver.findElement(By.cssSelector("ul.menu li#girl_sub.with-sub div.nav-sub div div.r a div.size-block div.t div h3")).click();
+}
 
 }
