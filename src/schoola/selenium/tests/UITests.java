@@ -48,6 +48,48 @@ public class UITests extends BaseSelenium{
 		softAssert.assertAll();
 	}
 	
+	@Test(priority=3,enabled=true)
+	public void TestForDonateButton(){
+		navHelper.gotohome(driver);
+				
+		boolean button=driver.findElement(By.xpath("html/body/div[4]/header/div[2]/div/div/div[1]/div/div/a[1]")).isDisplayed();
+		driver.findElement(By.xpath("html/body/div[4]/header/div[2]/div/div/div[1]/div/div/a[1]")).click();
+		
+		boolean titleonDonatePage = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/div[2]/h1")).isDisplayed();
+		String titletextonDonatePage = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/div[2]/h1")).getText();
+		
+		String titleOfDonatePage = driver.getTitle();
+		
+		softAssert.assertEquals(button,true,"Donate button is not dispalyed on home page");
+		softAssert.assertEquals(titleonDonatePage,true,"Title is not dispalyed on donate page");
+		softAssert.assertEquals(titleOfDonatePage, "Send Me A Bag - School Stitch", "Incorrect page is displayed");
+		softAssert.assertEquals(titletextonDonatePage, "School funds are in the bag!", "Incorrect page title is displayed");
+		
+		softAssert.assertAll();
 	}
+	
+	@Test(priority=4,enabled=false)
+	public void TestForShopButton(){
+		navHelper.gotohome(driver);
+		
+		boolean button=driver.findElement(By.xpath("html/body/div[4]/header/div[2]/div/div/div[1]/div/div/a[2]")).isDisplayed();
+		driver.findElement(By.xpath("html/body/div[4]/header/div[2]/div/div/div[1]/div/div/a[2]")).click();
+		
+		boolean titleonShopPage = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/h1")).isDisplayed();
+		String titleTextOfShopPage = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/h1")).getText();
+		 
+		String titleOfShopPage = driver.getTitle();
+				
+		softAssert.assertEquals(button,true,"Shop button is not dispalyed on home page");
+		softAssert.assertEquals(titleonShopPage,true,"Title is not dispalyed on shop page");
+		softAssert.assertEquals(titleOfShopPage, "Shop gently used clothes", "Incorrect page is displayed");
+		softAssert.assertEquals(titleTextOfShopPage, "GREAT CLOTHES THAT DO GOOD", "Incorrect page title is displayed");
+		
+		
+		softAssert.assertAll();
+	}
+		
+	
+}
 
 
