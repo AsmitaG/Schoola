@@ -66,6 +66,7 @@ public class UITests extends BaseSelenium{
 		softAssert.assertEquals(titletextonDonatePage, "School funds are in the bag!", "Incorrect page title is displayed");
 		
 		softAssert.assertAll();
+		
 	}
 	
 	@Test(priority=4,enabled=false)
