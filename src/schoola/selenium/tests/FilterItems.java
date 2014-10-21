@@ -5,11 +5,13 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import schoola.selenium.Base.BaseSelenium;
+import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.FilterHelpers;
 import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
@@ -19,38 +21,47 @@ public class FilterItems extends BaseSelenium {
 	/**
 	 * @param args
 	 */
-	LoginHelpers loginHelpers=new LoginHelpers();
+	BrowserHelper browserHelper = new BrowserHelper();
 	SoftAssert softAssert = new SoftAssert();
 	NavigationHelpers navHelper = new NavigationHelpers();	
 	FilterHelpers filterHelper = new FilterHelpers();
 	
+	@BeforeTest
+	public void setUp(){
+		browserHelper.setUp(driver);
+	}
+	
 	@Test(priority=1)
 	public void FilterByCategory() throws InterruptedException {
-		driver.get("http://www.schoola.com");
-
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		WebElement hover=driver.findElement(By.linkText("GIRLS"));
-		Actions Builder = new Actions(driver);
-		Builder.moveToElement(hover).build().perform();
-		driver.findElement(By.linkText("Boots")).click();
-		
+		navHelper.hoverOnMenu(driver, "GIRLS");		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.findElement(By.cssSelector("ul.menu li#girl_sub.with-sub div.nav-sub div div.r a div.size-block div.t div h3")).click();
+		navHelper.goToGirlsPreSchoola(driver);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		filterHelper.clearAllSelections(driver);		
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
 		filterHelper.category1(driver);		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		String category1 = filterHelper.category1_option1(driver);
+		System.out.println("category1 :"+category1);
 		Thread.sleep(3000);
-		String heading = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/h1")).getText();
-		System.out.println("heading"+heading);
+		String heading = filterHelper.filterPageHeading(driver);
+		String currentSelection = filterHelper.currentSelections(driver);
 		softAssert.assertTrue(heading.contains(category1.toUpperCase()), "On clicking Category Tops - "+category1+" for Girls,Page heading did not match to category name");
-		filterHelper.category1_option1(driver);
+		softAssert.assertEquals(currentSelection,category1, "On clicking Category Tops - "+category1+" , Your Selections does not match to selected category");
+			
+		filterHelper.clearAllSelections(driver);		
 		Thread.sleep(2000);
-		String category2 = filterHelper.category1_option2(driver);		
-		Thread.sleep(3000);
-		heading = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/h1")).getText();
+		filterHelper.category1(driver);
+		Thread.sleep(1000);
+		String category2 = filterHelper.category1_option2(driver);	
+		System.out.println("category2 :"+category2);
+		Thread.sleep(2000);
+		heading = filterHelper.filterPageHeading(driver);
+		currentSelection = filterHelper.currentSelections(driver);
 		softAssert.assertTrue(heading.contains(category2.toUpperCase()), "On clicking Category Tops - "+category2+" for Girls,Page heading did not match to category name");
+		softAssert.assertEquals(currentSelection,category2, "On clicking Category Tops - "+category2+" , Your Selections does not match to selected category");
 		softAssert.assertAll();
 		filterHelper.clearAllSelections(driver);
 		Thread.sleep(1000);
@@ -61,15 +72,151 @@ public class FilterItems extends BaseSelenium {
 	public void FilterByBrand() throws InterruptedException {
 		
 		String brand1 = filterHelper.brand_option1(driver);
-		System.out.println("BRAND"+brand1);
+		System.out.println("Brand 1 :"+brand1);
 		Thread.sleep(2000);
 		String heading = filterHelper.filterPageHeading(driver);		
-		System.out.println("heading"+heading);
+		
+		String currentSelection = filterHelper.currentSelections(driver);
 		softAssert.assertTrue(heading.contains(brand1.toUpperCase()), "On clicking Brand - "+brand1+" for Girls,Page heading did not match to brand name");
+		softAssert.assertEquals(currentSelection, brand1, "On clicking Brand -"+brand1+" , Your Selections does not match to selected brand name");
 		softAssert.assertAll();
-	 
+		
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+		
+		brand1 = filterHelper.brand_option2(driver);
+		System.out.println("Brand 2 :"+brand1);
+		Thread.sleep(2000);
+		heading = filterHelper.filterPageHeading(driver);		
+		
+		currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertTrue(heading.contains(brand1.toUpperCase()), "On clicking Brand - "+brand1+" for Girls,Page heading did not match to brand name");
+		softAssert.assertEquals(currentSelection, brand1, "On clicking Brand -"+brand1+" , Your Selections does not match to selected brand name");
+		softAssert.assertAll();
+		
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
 	  
   }
 	
+	@Test(priority=3)
+	public void FilterByPrice() throws InterruptedException {
+		
+		String price1 = filterHelper.price_option1(driver);
+		System.out.println("Price 1 :"+price1);
+		Thread.sleep(2000);
+		String heading = filterHelper.filterPageHeading(driver);		
+		
+		String currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"GREAT CLOTHES THAT DO GOOD", "On clicking Price - "+price1+" for Girls,Page heading did not match");
+		softAssert.assertEquals(currentSelection, price1, "On clicking Price -"+price1+" , Your Selections does not match to selected price value");
+		softAssert.assertAll();
+	  
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+		
+		price1 = filterHelper.price_option2(driver);
+		System.out.println("Price 2 :"+price1);
+		Thread.sleep(2000);
+		heading = filterHelper.filterPageHeading(driver);		
+		
+		currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"GREAT CLOTHES THAT DO GOOD", "On clicking Price - "+price1+" for Girls,Page heading did not match");
+		softAssert.assertEquals(currentSelection, price1, "On clicking Price -"+price1+" , Your Selections does not match to selected price value");
+		softAssert.assertAll();
+	  
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+  }
+	
+	@Test(priority=4)
+	public void FilterByColor() throws InterruptedException {
+		
+		String color1 = filterHelper.color_option1(driver);
+		System.out.println("Color1 :"+color1);
+		Thread.sleep(2000);
+		String heading = filterHelper.filterPageHeading(driver);		
+		
+		String currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"GREAT CLOTHES THAT DO GOOD", "On clicking Color - "+color1+" for Girls,Page heading did not match");
+		softAssert.assertEquals(currentSelection, color1, "On clicking Color -"+color1+" , Your Selections does not match to selected color name");
+		softAssert.assertAll();
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+		
+		color1 = filterHelper.color_option2(driver);
+		System.out.println("Color2 :"+color1);
+		Thread.sleep(2000);
+		heading = filterHelper.filterPageHeading(driver);		
+		
+		currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"GREAT CLOTHES THAT DO GOOD", "On clicking Color - "+color1+" for Girls,Page heading did not match");
+		softAssert.assertEquals(currentSelection, color1, "On clicking Color -"+color1+" , Your Selections does not match to selected color name");
+		softAssert.assertAll();
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+  }
+	
+	@Test(priority=5)
+	public void FilterByCondition() throws InterruptedException {
+		
+		String condition1 = filterHelper.condition_option1(driver);
+		System.out.println("Condition1 :"+condition1);
+		Thread.sleep(2000);
+		String heading = filterHelper.filterPageHeading(driver);		
+		
+		String currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"GREAT CLOTHES THAT DO GOOD", "On clicking Condition - "+condition1+" for Girls,Page heading did not match");
+		softAssert.assertTrue(condition1.contains(currentSelection), "On clicking Condition -"+condition1+" , Your Selections does not match to selected condition value");
+		softAssert.assertAll();
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+		
+		condition1 = filterHelper.condition_option2(driver);
+		System.out.println("Condition2 :"+condition1);
+		Thread.sleep(2000);
+		heading = filterHelper.filterPageHeading(driver);		
+		
+		currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"GREAT CLOTHES THAT DO GOOD", "On clicking Condition - "+condition1+" for Girls,Page heading did not match");
+		softAssert.assertTrue(condition1.contains(currentSelection), "On clicking Condition -"+condition1+" , Your Selections does not match to selected condition value");
+		softAssert.assertAll();
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+  }
+	
+	@Test(priority=6)
+	public void FilterByLook() throws InterruptedException {
+		
+		String look1 = filterHelper.look_option1(driver);
+		System.out.println("Look1 :"+look1);
+		Thread.sleep(2000);
+		String heading = filterHelper.filterPageHeading(driver);		
+		
+		String currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"GREAT CLOTHES THAT DO GOOD", "On clicking Look - "+look1+" for Girls,Page heading did not match");
+		softAssert.assertEquals(currentSelection,look1, "On clicking Look -"+look1+" , Your Selections does not match to selected look value");
+		softAssert.assertAll();
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+		
+		look1 = filterHelper.look_option2(driver);
+		System.out.println("Look2 :"+look1);
+		Thread.sleep(2000);
+		heading = filterHelper.filterPageHeading(driver);		
+		
+		currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"GREAT CLOTHES THAT DO GOOD", "On clicking Look - "+look1+" for Girls,Page heading did not match");
+		softAssert.assertEquals(currentSelection,look1, "On clicking Look -"+look1+" , Your Selections does not match to selected look value");
+		softAssert.assertAll();
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+		
+  }
+	
+	@AfterTest
+	public void tearDown(){
+		browserHelper.tearDown(driver);
+	}
 
 }
