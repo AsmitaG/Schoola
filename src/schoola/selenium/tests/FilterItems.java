@@ -230,6 +230,23 @@ public class FilterItems extends BaseSelenium {
 		
   }
 	
+	@Test(priority=7)
+	public void FilterBySearch() throws InterruptedException, IOException {
+		
+		filterHelper.searchFilter(driver);
+		Thread.sleep(3000);
+		takeScreenshot.takeScreenshot(driver, "FilterBySearch1.png");
+		String heading = filterHelper.filterPageHeading(driver);		
+		
+		String currentSelection = filterHelper.currentSelections(driver);
+		softAssert.assertEquals(heading,"SEARCH FOR \"JEANS\"", "On Search by Jeans , page heading did not match");
+		softAssert.assertEquals(currentSelection,"Jeans", "On search by Jeans, Your Selections does not match to the seacrhed value");
+		softAssert.assertAll();
+		filterHelper.clearAllSelections(driver);
+		Thread.sleep(1000);
+	
+	}
+	
 	@AfterTest
 	public void tearDown(){
 		browserHelper.tearDown(driver);
