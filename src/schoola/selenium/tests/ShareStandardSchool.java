@@ -1,5 +1,6 @@
 package schoola.selenium.tests;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -14,6 +15,7 @@ import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
+import schoola.selenium.Helpers.TakeScreenshots;
 
 public class ShareStandardSchool extends BaseSelenium  {
 	
@@ -21,13 +23,16 @@ public class ShareStandardSchool extends BaseSelenium  {
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();
 	SoftAssert softAssert = new SoftAssert();
+	TakeScreenshots screen = new TakeScreenshots();
 	
 	@Test(priority=1)
-	public void ShareSchoolOnTwitter(){
+	public void ShareSchoolOnTwitter() throws IOException, InterruptedException{
 		navHelper.gotoFeaturedSchool(driver);
 		driver.findElement(By.linkText("Share")).click();		
 		driver.findElement(By.id("user_name")).sendKeys("TestUser");
 		socialnwHelper.clickFBOrTWShare_button(driver, 2);
+		
+		screen.takeScreenshot(driver,"twitter.png");
 		
 		socialnwHelper.shareOnTwitter(driver);
 		String TWUrl = socialnwHelper.get_sharedTwitterURl(driver);
@@ -40,8 +45,8 @@ public class ShareStandardSchool extends BaseSelenium  {
 		softAssert.assertAll();
 	}
 	
-	@Test(priority=2)
-	public void ShareSchoolOnFacebook(){
+	@Test(priority=2,enabled=false)
+	public void ShareSchoolOnFacebook() throws InterruptedException{
 		navHelper.gotoStandardSchool(driver);
 		driver.findElement(By.linkText("Share")).click();		
 		driver.findElement(By.id("user_name")).sendKeys("TestUser");

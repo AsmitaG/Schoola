@@ -52,7 +52,7 @@ public class SocialNWLoginHelpers {
 		if (n==1)
 			driver.findElement(By.cssSelector("a.btn.btn-facebook > strong")).click();
 		else
-			driver.findElement(By.cssSelector("a.btn.btn-twitter > strong")).click();
+			driver.findElement(By.id("twbtn")).click();
 	}
 	
 	public void shareOnTwitter(WebDriver driver){
