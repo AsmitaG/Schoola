@@ -10,6 +10,9 @@ public void tearDown(WebDriver driver){
 }
 public void setUp(WebDriver driver){
 	driver.get("http://stage.schoola.com/");
-	driver.findElement(By.cssSelector(".roadblock-close")).click();
+	/*if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed()) {
+		driver.findElement(By.cssSelector(".roadblock-close")).click();
+	}*/
+	driver.manage().window().maximize();
 }
 }

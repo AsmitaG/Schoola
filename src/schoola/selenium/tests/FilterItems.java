@@ -1,5 +1,6 @@
 package schoola.selenium.tests;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -15,6 +16,7 @@ import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.FilterHelpers;
 import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
+import schoola.selenium.Helpers.TakeScreenshots;
 
 public class FilterItems extends BaseSelenium {
 
@@ -25,6 +27,7 @@ public class FilterItems extends BaseSelenium {
 	SoftAssert softAssert = new SoftAssert();
 	NavigationHelpers navHelper = new NavigationHelpers();	
 	FilterHelpers filterHelper = new FilterHelpers();
+	TakeScreenshots takeScreenshot = new TakeScreenshots();
 	
 	@BeforeTest
 	public void setUp(){
@@ -32,7 +35,7 @@ public class FilterItems extends BaseSelenium {
 	}
 	
 	@Test(priority=1)
-	public void FilterByCategory() throws InterruptedException {
+	public void FilterByCategory() throws InterruptedException, IOException {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver, "GIRLS");		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -43,9 +46,10 @@ public class FilterItems extends BaseSelenium {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
 		filterHelper.category1(driver);		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		String category1 = filterHelper.category1_option1(driver);
+		String category1 = filterHelper.category1_option1(driver);		
 		System.out.println("category1 :"+category1);
 		Thread.sleep(3000);
+		takeScreenshot.takeScreenshot(driver, "FilterByTops1.png");
 		String heading = filterHelper.filterPageHeading(driver);
 		String currentSelection = filterHelper.currentSelections(driver);
 		softAssert.assertTrue(heading.contains(category1.toUpperCase()), "On clicking Category Tops - "+category1+" for Girls,Page heading did not match to category name");
@@ -56,8 +60,10 @@ public class FilterItems extends BaseSelenium {
 		filterHelper.category1(driver);
 		Thread.sleep(1000);
 		String category2 = filterHelper.category1_option2(driver);	
+		
 		System.out.println("category2 :"+category2);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByTops2.png");
 		heading = filterHelper.filterPageHeading(driver);
 		currentSelection = filterHelper.currentSelections(driver);
 		softAssert.assertTrue(heading.contains(category2.toUpperCase()), "On clicking Category Tops - "+category2+" for Girls,Page heading did not match to category name");
@@ -69,11 +75,12 @@ public class FilterItems extends BaseSelenium {
 	
 	
 	@Test(priority=2)
-	public void FilterByBrand() throws InterruptedException {
+	public void FilterByBrand() throws InterruptedException, IOException {
 		
 		String brand1 = filterHelper.brand_option1(driver);
 		System.out.println("Brand 1 :"+brand1);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByBrand1.png");
 		String heading = filterHelper.filterPageHeading(driver);		
 		
 		String currentSelection = filterHelper.currentSelections(driver);
@@ -85,6 +92,7 @@ public class FilterItems extends BaseSelenium {
 		Thread.sleep(1000);
 		
 		brand1 = filterHelper.brand_option2(driver);
+		takeScreenshot.takeScreenshot(driver, "FilterByBrand2.png");
 		System.out.println("Brand 2 :"+brand1);
 		Thread.sleep(2000);
 		heading = filterHelper.filterPageHeading(driver);		
@@ -100,11 +108,12 @@ public class FilterItems extends BaseSelenium {
   }
 	
 	@Test(priority=3)
-	public void FilterByPrice() throws InterruptedException {
+	public void FilterByPrice() throws InterruptedException, IOException {
 		
 		String price1 = filterHelper.price_option1(driver);
 		System.out.println("Price 1 :"+price1);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByPrice1.png");
 		String heading = filterHelper.filterPageHeading(driver);		
 		
 		String currentSelection = filterHelper.currentSelections(driver);
@@ -116,6 +125,7 @@ public class FilterItems extends BaseSelenium {
 		Thread.sleep(1000);
 		
 		price1 = filterHelper.price_option2(driver);
+		takeScreenshot.takeScreenshot(driver, "FilterByPrice2.png");
 		System.out.println("Price 2 :"+price1);
 		Thread.sleep(2000);
 		heading = filterHelper.filterPageHeading(driver);		
@@ -130,11 +140,12 @@ public class FilterItems extends BaseSelenium {
   }
 	
 	@Test(priority=4)
-	public void FilterByColor() throws InterruptedException {
+	public void FilterByColor() throws InterruptedException, IOException {
 		
 		String color1 = filterHelper.color_option1(driver);
 		System.out.println("Color1 :"+color1);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByColor1.png");
 		String heading = filterHelper.filterPageHeading(driver);		
 		
 		String currentSelection = filterHelper.currentSelections(driver);
@@ -147,6 +158,7 @@ public class FilterItems extends BaseSelenium {
 		color1 = filterHelper.color_option2(driver);
 		System.out.println("Color2 :"+color1);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByColor2.png");
 		heading = filterHelper.filterPageHeading(driver);		
 		
 		currentSelection = filterHelper.currentSelections(driver);
@@ -158,11 +170,12 @@ public class FilterItems extends BaseSelenium {
   }
 	
 	@Test(priority=5)
-	public void FilterByCondition() throws InterruptedException {
+	public void FilterByCondition() throws InterruptedException, IOException {
 		
 		String condition1 = filterHelper.condition_option1(driver);
 		System.out.println("Condition1 :"+condition1);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByCondition1.png");
 		String heading = filterHelper.filterPageHeading(driver);		
 		
 		String currentSelection = filterHelper.currentSelections(driver);
@@ -175,6 +188,7 @@ public class FilterItems extends BaseSelenium {
 		condition1 = filterHelper.condition_option2(driver);
 		System.out.println("Condition2 :"+condition1);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByCondition2.png");
 		heading = filterHelper.filterPageHeading(driver);		
 		
 		currentSelection = filterHelper.currentSelections(driver);
@@ -186,11 +200,12 @@ public class FilterItems extends BaseSelenium {
   }
 	
 	@Test(priority=6)
-	public void FilterByLook() throws InterruptedException {
+	public void FilterByLook() throws InterruptedException, IOException {
 		
 		String look1 = filterHelper.look_option1(driver);
 		System.out.println("Look1 :"+look1);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByLook1.png");
 		String heading = filterHelper.filterPageHeading(driver);		
 		
 		String currentSelection = filterHelper.currentSelections(driver);
@@ -203,6 +218,7 @@ public class FilterItems extends BaseSelenium {
 		look1 = filterHelper.look_option2(driver);
 		System.out.println("Look2 :"+look1);
 		Thread.sleep(2000);
+		takeScreenshot.takeScreenshot(driver, "FilterByLook2.png");
 		heading = filterHelper.filterPageHeading(driver);		
 		
 		currentSelection = filterHelper.currentSelections(driver);
