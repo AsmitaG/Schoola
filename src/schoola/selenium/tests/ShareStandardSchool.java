@@ -1,17 +1,11 @@
 package schoola.selenium.tests;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
-
 import org.openqa.selenium.By;
-import org.testng.Reporter;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import  org.testng.asserts.SoftAssert;
 
 import schoola.selenium.Base.BaseSelenium;
-import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
@@ -27,7 +21,7 @@ public class ShareStandardSchool extends BaseSelenium  {
 	
 	@Test(priority=1)
 	public void ShareSchoolOnTwitter() throws IOException, InterruptedException{
-		navHelper.gotoFeaturedSchool(driver);
+		navHelper.gotoStandardSchool(driver);
 		driver.findElement(By.linkText("Share")).click();		
 		driver.findElement(By.id("user_name")).sendKeys("TestUser");
 		socialnwHelper.clickFBOrTWShare_button(driver, 2);
@@ -43,9 +37,10 @@ public class ShareStandardSchool extends BaseSelenium  {
 		softAssert.assertTrue(TWUrl.contains("utm_campaign=school-page") , "Shared Twitter URL  does not contain correct utm_campaign parameter");
 		
 		softAssert.assertAll();
+		Thread.sleep(5000);
 	}
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void ShareSchoolOnFacebook() throws InterruptedException{
 		navHelper.gotoStandardSchool(driver);
 		driver.findElement(By.linkText("Share")).click();		

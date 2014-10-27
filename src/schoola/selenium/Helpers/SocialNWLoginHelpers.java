@@ -14,7 +14,7 @@ public class SocialNWLoginHelpers {
 	
 	private static final String TimeSpan = null;
 
-	public void shareOnFacebook(WebDriver driver){
+	public void shareOnFacebook(WebDriver driver) throws InterruptedException{
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
 		for(String handle : windowHandles){
@@ -22,6 +22,7 @@ public class SocialNWLoginHelpers {
 				driver.switchTo().window(handle);
 			}
 		}
+		Thread.sleep(4000);
 		driver.findElement(By.id("email")).sendKeys("agsavy1@gmail.com");
 		driver.findElement(By.id("pass")).sendKeys("testuser123");
 		driver.findElement(By.id("u_0_1")).click();
@@ -33,7 +34,7 @@ public class SocialNWLoginHelpers {
 	public String Get_SharedFacebookUrl(WebDriver driver){
 		driver.get("www.facebook.com");	
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		driver.findElement(By.cssSelector("div#u_ps_0_0_2 div.clearfix div.lfloat span div._6ks a div._6l-")).click();
+		driver.findElement(By.cssSelector("div._6l-.__c_")).click();
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
@@ -43,6 +44,8 @@ public class SocialNWLoginHelpers {
 			}
 		}
 		String FBUrl = driver.getCurrentUrl();
+		driver.close();
+		driver.switchTo().window(parentWindow);
 		return FBUrl;
 	}
 	
@@ -91,8 +94,10 @@ public class SocialNWLoginHelpers {
 		}   
 		
 		WebDriverWait wait = new WebDriverWait(driver, 40);
-		Boolean element = wait.until(ExpectedConditions.titleContains("Schoola"));
+		Boolean element = wait.until(ExpectedConditions.titleContains("Music"));
 		String tw_url=driver.getCurrentUrl();
+		driver.close();
+		driver.switchTo().window(parentWindow);
 		return tw_url;
 	}
 	
