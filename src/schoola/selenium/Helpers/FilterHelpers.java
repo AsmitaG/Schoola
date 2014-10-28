@@ -88,6 +88,11 @@ public class FilterHelpers {
 		return look1;
 	}
 	
+	public void searchFilter(WebDriver driver){
+		driver.findElement(By.id("header-quick-search")).sendKeys("Jeans");	
+		driver.findElement(By.id("header-icon-search")).click();
+	}
+	
 	public String filterPageHeading(WebDriver driver){
 		String heading = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/h1")).getText();
 		return heading;

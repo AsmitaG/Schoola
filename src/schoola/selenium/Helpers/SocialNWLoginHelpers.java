@@ -93,8 +93,8 @@ public class SocialNWLoginHelpers {
 			}
 		}   
 		
-		WebDriverWait wait = new WebDriverWait(driver, 40);
-		Boolean element = wait.until(ExpectedConditions.titleContains("Music"));
+		//WebDriverWait wait = new WebDriverWait(driver, 40);
+		//Boolean element = wait.until(ExpectedConditions.titleContains("Music"));
 		String tw_url=driver.getCurrentUrl();
 		driver.close();
 		driver.switchTo().window(parentWindow);
