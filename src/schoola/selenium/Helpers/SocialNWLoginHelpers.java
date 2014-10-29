@@ -10,11 +10,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import schoola.selenium.Properties.UserEmail;
+
 public class SocialNWLoginHelpers {
 	
-	private static final String TimeSpan = null;
-
-	public void shareOnFacebook(WebDriver driver) throws InterruptedException{
+	UserEmail userEmail = new UserEmail();
+	
+	public void shareOnFacebook(WebDriver driver){
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
 		for(String handle : windowHandles){
@@ -22,9 +24,8 @@ public class SocialNWLoginHelpers {
 				driver.switchTo().window(handle);
 			}
 		}
-		Thread.sleep(4000);
-		driver.findElement(By.id("email")).sendKeys("agsavy1@gmail.com");
-		driver.findElement(By.id("pass")).sendKeys("testuser123");
+		driver.findElement(By.id("email")).sendKeys(userEmail.get_fbemail());
+		driver.findElement(By.id("pass")).sendKeys(userEmail.get_fbpwd());
 		driver.findElement(By.id("u_0_1")).click();
 		driver.findElement(By.id("feedform_user_message")).sendKeys("Test Post");
 		driver.findElement(By.id("u_0_2")).click();
@@ -34,7 +35,7 @@ public class SocialNWLoginHelpers {
 	public String Get_SharedFacebookUrl(WebDriver driver){
 		driver.get("www.facebook.com");	
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		driver.findElement(By.cssSelector("div._6l-.__c_")).click();
+		driver.findElement(By.cssSelector("div#u_ps_0_0_2 div.clearfix div.lfloat span div._6ks a div._6l-")).click();
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
@@ -66,8 +67,8 @@ public class SocialNWLoginHelpers {
 				driver.switchTo().window(handle);
 			}
 		}
-		driver.findElement(By.id("username_or_email")).sendKeys("KjameskJamesjamesk@outlook.com");
-		driver.findElement(By.id("password")).sendKeys("school123");
+		driver.findElement(By.id("username_or_email")).sendKeys(userEmail.get_twemail());
+		driver.findElement(By.id("password")).sendKeys(userEmail.get_twpwd());
 		String tweet = driver.findElement(By.id("status")).getAttribute("value");
 		driver.findElement(By.id("status")).clear();
 		String[] link = tweet.split("!");
@@ -81,7 +82,7 @@ public class SocialNWLoginHelpers {
 		driver.switchTo().window(parentWindow);
 	}
 	
-	public String get_sharedTwitterURl(WebDriver driver){
+	public String get_sharedTwitterURl(WebDriver driver) throws InterruptedException{
 		driver.get("https://www.twitter.com");
 		driver.findElement(By.cssSelector("span.js-display-url")).click();
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
@@ -93,8 +94,9 @@ public class SocialNWLoginHelpers {
 			}
 		}   
 		
-		//WebDriverWait wait = new WebDriverWait(driver, 40);
-		//Boolean element = wait.until(ExpectedConditions.titleContains("Music"));
+		/*WebDriverWait wait = new WebDriverWait(driver, 40);
+		Boolean element = wait.until(ExpectedConditions.titleContains("Schoola"));*/
+		Thread.sleep(5000);
 		String tw_url=driver.getCurrentUrl();
 		driver.close();
 		driver.switchTo().window(parentWindow);
