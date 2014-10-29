@@ -1,5 +1,6 @@
 package schoola.selenium.tests;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -14,6 +15,7 @@ import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
+import schoola.selenium.Helpers.TakeScreenshots;
 
 public class ShareReferralLink extends BaseSelenium  {
 	
@@ -21,6 +23,7 @@ public class ShareReferralLink extends BaseSelenium  {
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();
 	SoftAssert softAssert = new SoftAssert();
+	TakeScreenshots takeScreenshot = new TakeScreenshots();
 	
 	@BeforeTest
 	public void Login() throws InterruptedException {
@@ -28,11 +31,13 @@ public class ShareReferralLink extends BaseSelenium  {
 	}
 	
 	@Test(enabled=false)
-	public void ShareReferralOnFacebook() throws InterruptedException {
+	public void ShareReferralOnFacebook() throws InterruptedException, IOException {
 	  navHelper.gotoReferralLink(driver);
 	  socialnwHelper.clickFBOrTWShare_button(driver, 1);
-	  	 
+	  takeScreenshot.takeScreenshot(driver, "ShareReferralFB1.png");
+	  
 	  socialnwHelper.shareOnFacebook(driver);
+	  takeScreenshot.takeScreenshot(driver, "facebook2.png");
 	  String FBUrl = socialnwHelper.Get_SharedFacebookUrl(driver);	
 	  System.out.println(" Shared FB URL : "+FBUrl);
 	 
@@ -46,11 +51,12 @@ public class ShareReferralLink extends BaseSelenium  {
   }
 	
 	@Test
-	public void ShareSchoolOnTwitter(){
+	public void ShareSchoolOnTwitter() throws IOException, InterruptedException{
 		navHelper.gotoReferralLink(driver);
 		socialnwHelper.clickFBOrTWShare_button(driver, 2);
 		
 		socialnwHelper.shareOnTwitter(driver);
+		takeScreenshot.takeScreenshot(driver, "ShareReferralTW1.png");
 		String TWUrl = socialnwHelper.get_sharedTwitterURl(driver);
 		System.out.println(" Shared TW URL : "+TWUrl);
 		

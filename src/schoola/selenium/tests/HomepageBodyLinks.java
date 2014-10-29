@@ -13,7 +13,7 @@ import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
 
-public class HomepageUI extends BaseSelenium{
+public class HomepageBodyLinks extends BaseSelenium{
 	NavigationHelpers navHelper=new NavigationHelpers();
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();

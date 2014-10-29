@@ -20,6 +20,7 @@ public class UserEmail {
 		private String twemail;
 		private String twpwd;
 		private String storedEmail;
+		private String url;
 		
 		public UserEmail() {	
 			try
@@ -82,6 +83,10 @@ public class UserEmail {
 			return twpwd;
 		}
 
+		public String get_homeurl() {
+			url = prop.getProperty("url");
+			return url;
+		}
 
 
 }
