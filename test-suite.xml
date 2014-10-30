@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+ 
+<suite name="Suite" parallel="false" preserve-order="true">
+ 
+ 
+ 
+ <test name="test1">
+ 
+ <parameter name="browser" value="firefox" />
+ 
+ <classes>
+ 	 <class name="schoola.selenium.tests.Register" />
+ </classes>
+ 
+ </test>
+ 
+  <test name="test2">
+ 
+ <parameter name="browser" value="firefox" />
+ 
+ <classes>
+ 	 <class name="schoola.selenium.tests.ShareReferralLink" />
+ </classes>
+ 
+ </test>
+ 
+</suite>

@@ -1,5 +1,6 @@
 package schoola.selenium.Helpers;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -11,6 +12,7 @@ import schoola.selenium.Properties.UserEmail;
 public class SocialNWLoginHelpers {
 	
 	UserEmail userEmail = new UserEmail();
+	TakeScreenshots takeScreenshot = new TakeScreenshots();
 	
 	public void shareOnFacebook(WebDriver driver){
 		String parentWindow = driver.getWindowHandle();
@@ -28,9 +30,10 @@ public class SocialNWLoginHelpers {
 		driver.switchTo().window(parentWindow);
 	}
 	
-	public String Get_SharedFacebookUrl(WebDriver driver){
+	public String Get_SharedFacebookUrl(WebDriver driver) throws IOException{
 		driver.get("www.facebook.com");	
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		takeScreenshot.takeScreenshot(driver, "ShareReferralFB3.png");
 		driver.findElement(By.cssSelector("div#u_ps_0_0_2 div.clearfix div.lfloat span div._6ks a div._6l-")).click();
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 		String parentWindow = driver.getWindowHandle();
@@ -78,8 +81,9 @@ public class SocialNWLoginHelpers {
 		driver.switchTo().window(parentWindow);
 	}
 	
-	public String get_sharedTwitterURl(WebDriver driver) throws InterruptedException{
+	public String get_sharedTwitterURl(WebDriver driver) throws InterruptedException, IOException{
 		driver.get("https://www.twitter.com");
+		takeScreenshot.takeScreenshot(driver, "ShareReferralTW2.png");
 		driver.findElement(By.cssSelector("span.js-display-url")).click();
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 		String parentWindow = driver.getWindowHandle();
