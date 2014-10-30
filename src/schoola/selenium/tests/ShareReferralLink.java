@@ -1,15 +1,11 @@
 package schoola.selenium.tests;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 
-import org.openqa.selenium.By;
-import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import  org.testng.asserts.SoftAssert;
+import org.testng.asserts.SoftAssert;
 
 import schoola.selenium.Base.BaseSelenium;
 import schoola.selenium.Helpers.BrowserHelper;

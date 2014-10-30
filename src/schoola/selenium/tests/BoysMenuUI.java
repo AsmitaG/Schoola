@@ -251,6 +251,29 @@ public class BoysMenuUI extends BaseSelenium {
 	    softAssert.assertAll();
 	    Thread.sleep(2000);
 	}
+	
+	@Test(priority=7,enabled=true)
+	public void Pagination() throws InterruptedException{
+		driver.get("http://stage.schoola.com/stitch/shop/boys-high-schoola");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[@id='s-body']/div[2]/div[3]/div/div[14]/ul/li[2]/a")).click();
+		Thread.sleep(2000);
+		String page2 = driver.getCurrentUrl();
+		driver.findElement(By.xpath(".//*[@id='s-body']/div[2]/div[3]/div/div[14]/ul/li[3]/a")).click();
+		Thread.sleep(2000);
+		String page3 = driver.getCurrentUrl();
+		driver.findElement(By.xpath(".//*[@id='s-body']/div[2]/div[3]/div/div[14]/ul/li[1]/a")).click();
+		Thread.sleep(2000);
+		String page1 = driver.getCurrentUrl();
+		
+		softAssert.assertTrue(page2.contains("boys-high-schoola/page-2") , "Pagination not working");	  
+		softAssert.assertTrue(page3.contains("boys-high-schoola/page-3") , "Pagination not working");
+		softAssert.assertTrue(page1.contains("boys-high-schoola") , "Pagination not working");
+		
+		softAssert.assertAll();
+		Thread.sleep(2000);
+		
+	}
 
 	@AfterTest
     public void closeWindow(){

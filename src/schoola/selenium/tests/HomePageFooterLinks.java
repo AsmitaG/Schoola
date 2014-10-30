@@ -13,10 +13,12 @@ import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
+import schoola.selenium.Properties.UserEmail;
 
 public class HomePageFooterLinks extends BaseSelenium{
 	NavigationHelpers navHelper=new NavigationHelpers();
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
+	UserEmail userEmail = new UserEmail();
 	LoginHelpers loginHelper = new LoginHelpers();
 	SoftAssert softAssert = new SoftAssert();
 	BrowserHelper browser = new BrowserHelper();
@@ -251,12 +253,14 @@ public class HomePageFooterLinks extends BaseSelenium{
 		driver.findElement(By.linkText("Refer a Friend, Get $15")).click();
 		
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 		String title = driver.getTitle();
-		driver.findElement(By.id("signin-email")).sendKeys("test@test123.com");
-		driver.findElement(By.id("signin-password")).sendKeys("test@test123.com");
+		String  email=userEmail.get_schoolaemail()+"@"+userEmail.get_schemaildomain();
+		driver.findElement(By.id("signin-email")).sendKeys(email);
+		driver.findElement(By.id("signin-password")).sendKeys(userEmail.get_schoolapwd());
 		driver.findElement(By.id("overlay-login-submit")).click();
+		Thread.sleep(3000);
 		String textonpage = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/h1")).getText();
 		
 		
@@ -265,7 +269,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 		softAssert.assertEquals(textonpage, "$15 for You. $15 for your Friend. 40% to Schools.", "Incorrect page text is displayed on page - Refer a Friend, Get $15");
 		
 		softAssert.assertAll();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	@Test(priority=10,enabled=true)

@@ -15,7 +15,7 @@ import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
 import schoola.selenium.Helpers.TakeScreenshots;
 
-public class DonateAndCreateShopWorkflow extends BaseSelenium{
+public class DonateAndCreateShop extends BaseSelenium{
 	NavigationHelpers navHelper=new NavigationHelpers();
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();

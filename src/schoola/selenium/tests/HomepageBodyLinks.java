@@ -27,6 +27,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 		String brand = driver.findElement(By.xpath(".//*[@id='hp-content']/div[3]/div[2]/div/div[1]/ul[2]/li[1]/a")).getText();
 		brand = brand.toUpperCase();
 		driver.findElement(By.xpath(".//*[@id='hp-content']/div[3]/div[2]/div/div[1]/ul[2]/li[1]/a")).click();
+		Thread.sleep(2000);
 		String brandPageTitle = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/h1")).getText();
 		Thread.sleep(2000);
 		
@@ -37,7 +38,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 		softAssert.assertEquals(brand, brandnameForProduct, "Brand name does not match on brand page");
 		
 		softAssert.assertAll();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 	
 	@Test(priority=2,enabled=true)
@@ -47,6 +48,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(".//*[@id='hp-content']/div[3]/div[2]/div/ul/li[2]/a")).click();
+		Thread.sleep(2000);
 		String style = driver.findElement(By.xpath(".//*[@id='hp-content']/div[3]/div[2]/div/div[2]/ul[1]/li[1]/a")).getText();
 		style = style.toUpperCase();
 		Thread.sleep(5000);
@@ -163,7 +165,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 		Thread.sleep(5000);
 	}
 	
-	@Test(priority=7,enabled=true)
+	@Test(priority=7,enabled=false)
 	public void NewwithTags() throws InterruptedException{
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
@@ -194,7 +196,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 		
 	}
 	
-	@Test(priority=8,enabled=true)
+	@Test(priority=8,enabled=false)
 	public void FindYourSchool() throws InterruptedException{
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
@@ -258,7 +260,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=10,enabled=false)
+	@Test(priority=10,enabled=true)
 	public void CustomShop() throws InterruptedException{
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())

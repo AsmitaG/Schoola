@@ -24,4 +24,47 @@ public class DirectorySettings {
 		snapshotPath = prop.getProperty("path");
 		return snapshotPath;
 	}
+	
+	public String getPath1ForSnapshot(){
+		snapshotPath = prop.getProperty("path1");
+		return snapshotPath;
+	}
+	
+	public String getPath2ForSnapshot(){
+		snapshotPath = prop.getProperty("path2");
+		return snapshotPath;
+	}
+	
+	public String getPath3ForSnapshot(){
+		snapshotPath = prop.getProperty("path3");
+		return snapshotPath;
+	}
+	
+	public String getPath4ForSnapshot(){
+		snapshotPath = prop.getProperty("path4");
+		return snapshotPath;
+	}
+	
+	public String getPath5ForSnapshot(){
+		snapshotPath = prop.getProperty("path5");
+		return snapshotPath;
+	}
+	
+	public String getPath6ForSnapshot(){
+		snapshotPath = prop.getProperty("path6");
+		return snapshotPath;
+	}
+	
+	public String getPath7ForSnapshot(){
+		snapshotPath = prop.getProperty("path7");
+		return snapshotPath;
+	}
+	
+	public String getPath8ForSnapshot(){
+		snapshotPath = prop.getProperty("path8");
+		return snapshotPath;
+	}
+	
+
+
 }

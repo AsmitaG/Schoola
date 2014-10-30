@@ -2,10 +2,12 @@ package schoola.selenium.tests;
 
 import java.io.IOException;
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import  org.testng.asserts.SoftAssert;
 
 import schoola.selenium.Base.BaseSelenium;
+import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
@@ -17,6 +19,7 @@ public class ShareFeatureSchool extends BaseSelenium  {
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();
 	TakeScreenshots snap = new TakeScreenshots();
+	BrowserHelper browser = new BrowserHelper();
 	SoftAssert softAssert = new SoftAssert();
 	
 	@Test(priority=1,enabled=true)
@@ -57,6 +60,11 @@ public class ShareFeatureSchool extends BaseSelenium  {
 		softAssert.assertTrue(FBUrl.contains("utm_campaign=school-page") , "Shared Twitter URL  does not contain correct utm_campaign parameter");
 		
 		softAssert.assertAll();
+	}
+	
+	@AfterTest
+    public void closeWindow(){
+    	browser.tearDown(driver);
 	}
 	  
   }

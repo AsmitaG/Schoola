@@ -14,7 +14,7 @@ public class SocialNWLoginHelpers {
 	UserEmail userEmail = new UserEmail();
 	TakeScreenshots takeScreenshot = new TakeScreenshots();
 	
-	public void shareOnFacebook(WebDriver driver){
+	public void shareOnFacebook(WebDriver driver) throws InterruptedException{
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
 		for(String handle : windowHandles){
@@ -22,6 +22,7 @@ public class SocialNWLoginHelpers {
 				driver.switchTo().window(handle);
 			}
 		}
+		Thread.sleep(3000);
 		driver.findElement(By.id("email")).sendKeys(userEmail.get_fbemail());
 		driver.findElement(By.id("pass")).sendKeys(userEmail.get_fbpwd());
 		driver.findElement(By.id("u_0_1")).click();
@@ -32,9 +33,10 @@ public class SocialNWLoginHelpers {
 	
 	public String Get_SharedFacebookUrl(WebDriver driver) throws IOException{
 		driver.get("www.facebook.com");	
+		driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		takeScreenshot.takeScreenshot(driver, "ShareReferralFB3.png");
-		driver.findElement(By.cssSelector("div#u_ps_0_0_2 div.clearfix div.lfloat span div._6ks a div._6l-")).click();
+		driver.findElement(By.cssSelector("div._6l-.__c_")).click();
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
