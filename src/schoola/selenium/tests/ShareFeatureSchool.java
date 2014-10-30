@@ -28,6 +28,7 @@ public class ShareFeatureSchool extends BaseSelenium  {
 		
 		
 		socialnwHelper.shareOnTwitter(driver);
+		snap.takeScreenshot(driver, "FeatureSchoolTW.png");
 		String TWUrl = socialnwHelper.get_sharedTwitterURl(driver);
 		System.out.println(" Shared TW URL : "+TWUrl);
 		
@@ -40,13 +41,14 @@ public class ShareFeatureSchool extends BaseSelenium  {
 	}
 	
 	@Test(priority=2,enabled=true)
-	public void ShareSchoolOnFacebook() throws InterruptedException{
+	public void ShareSchoolOnFacebook() throws InterruptedException, IOException{
 		navHelper.gotoFeaturedSchool(driver);
 		driver.findElement(By.linkText("Share")).click();		
 		driver.findElement(By.id("user_name")).sendKeys("TestUser");
 		socialnwHelper.clickFBOrTWShare_button(driver, 1);
 		
 		socialnwHelper.shareOnFacebook(driver);
+		snap.takeScreenshot(driver, "FeatureSchoolFB.png");
 		String FBUrl = socialnwHelper.Get_SharedFacebookUrl(driver);
 		System.out.println(" Shared FB URL : "+FBUrl);
 		

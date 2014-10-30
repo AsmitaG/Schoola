@@ -1,5 +1,7 @@
 package schoola.selenium.tests;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterTest;
@@ -11,6 +13,7 @@ import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
+import schoola.selenium.Helpers.TakeScreenshots;
 
 public class DonateAndCreateShopWorkflow extends BaseSelenium{
 	NavigationHelpers navHelper=new NavigationHelpers();
@@ -18,6 +21,7 @@ public class DonateAndCreateShopWorkflow extends BaseSelenium{
 	LoginHelpers loginHelper = new LoginHelpers();
 	SoftAssert softAssert = new SoftAssert();
 	BrowserHelper browser = new BrowserHelper();
+	TakeScreenshots snap = new TakeScreenshots();
 	String uniqueShopId;
 	
 	@Test(priority=1,enabled=true)
@@ -151,7 +155,6 @@ public class DonateAndCreateShopWorkflow extends BaseSelenium{
 		Thread.sleep(5000);
 	}
 	
-	
 	@Test(priority=4,enabled=true)
 	public void VisitCustomShop() throws InterruptedException{
 		String ShopUrl = driver.findElement(By.xpath(".//*[@id='s-body']/div/div[1]/div[2]/p")).getText();
@@ -176,9 +179,10 @@ public class DonateAndCreateShopWorkflow extends BaseSelenium{
 	}
 	
 	@Test(priority=5,enabled=true)
-	public void ShareShopOnFacebook() throws InterruptedException{
+	public void ShareShopOnFacebook() throws InterruptedException, IOException{
 		driver.findElement(By.id("share")).click();
 		socialnwHelper.clickFBOrTWShare_button(driver, 1);
+		snap.takeScreenshot(driver,"customShopFB.png");
 		socialnwHelper.shareOnFacebook(driver);
 		Thread.sleep(5000);
 		String fbUrl = socialnwHelper.Get_SharedFacebookUrl(driver);
@@ -193,10 +197,11 @@ public class DonateAndCreateShopWorkflow extends BaseSelenium{
 	}
 	
 	@Test(priority=6,enabled=true)
-	public void ShareShopOnTwitter() throws InterruptedException{
+	public void ShareShopOnTwitter() throws InterruptedException, IOException{
 		driver.findElement(By.id("share")).click();
 		socialnwHelper.clickFBOrTWShare_button(driver, 2);
 		socialnwHelper.shareOnTwitter(driver);
+		snap.takeScreenshot(driver,"customShopTW.png");
 		Thread.sleep(5000);
 		String twUrl = socialnwHelper.get_sharedTwitterURl(driver);
 		softAssert.assertTrue(twUrl.contains("utm_source=twitter") , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
@@ -207,6 +212,7 @@ public class DonateAndCreateShopWorkflow extends BaseSelenium{
 		
 		Thread.sleep(2000);
 	}
+	
 	@AfterTest
     public void closeWindow(){
     	browser.tearDown(driver);
