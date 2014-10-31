@@ -38,10 +38,12 @@ public void register(WebDriver driver) throws InterruptedException {
 }
 
 public void registersubmit(WebDriver driver) {
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	driver.findElement(By.id("register-user")).click();
 	}
 
 public void logout(WebDriver driver){
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	driver.findElement(By.linkText(userdetails.get_userfname()+" "+userdetails.get_userlname())).click();
 	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	driver.findElement(By.linkText("SIGN OUT")).click();
@@ -64,9 +66,5 @@ public void login(WebDriver driver) throws InterruptedException{
 public void loginsubmit(WebDriver driver) {
 	driver.findElement(By.id("overlay-login-submit")).click();	
 	}
-    
-
-
-
 
 }

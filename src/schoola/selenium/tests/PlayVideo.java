@@ -3,19 +3,13 @@ package schoola.selenium.tests;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import schoola.selenium.Base.BaseSelenium;
 import schoola.selenium.Helpers.BrowserHelper;
-import schoola.selenium.Helpers.LoginHelpers;
-import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.VideoPageHelpers;
 import schoola.selenium.Properties.VideoUrls;
 

@@ -6,30 +6,30 @@ import org.openqa.selenium.interactions.Actions;
 public class NavigationHelpers {
 
 public void gotoGirlsMenu(WebDriver driver){
-driver.findElement(By.cssSelector("#girl_sub .menu_overlay")).click();
+	driver.findElement(By.cssSelector("#girl_sub .menu_overlay")).click();
 }
 
 public void gotoBoysMenu(WebDriver driver){
-driver.findElement(By.cssSelector("#boy_sub .menu_overlay")).click();
+	driver.findElement(By.cssSelector("#boy_sub .menu_overlay")).click();
 }
 
 public void gotoCollection(WebDriver driver,int number){
-if(number==1){
-driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(1) a img")).click();
-}
-if(number==2){
-driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(2) a img")).click();
-}
-if(number==3){
-driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(3) a img")).click();
-}
-if(number==4){
-driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(4) a img")).click();
-}
+	if(number==1){
+			driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(1) a img")).click();
+	}
+	if(number==2){
+		driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(2) a img")).click();
+	}
+	if(number==3){
+		driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(3) a img")).click();
+	}
+	if(number==4){
+		driver.findElement(By.cssSelector("#featured_sub div ul li:nth-child(4) a img")).click();
+	}
 }
 
 public void gotoSchool(WebDriver driver){
-driver.findElement(By.linkText("Schools")).click();
+	driver.findElement(By.linkText("Schools")).click();
 }
 
 public void gotoReferralLink(WebDriver driver){
@@ -57,6 +57,14 @@ public void hoverOnMenu(WebDriver driver,String menu){
 
 public void goToGirlsPreSchoola(WebDriver driver){
 	driver.findElement(By.cssSelector("ul.menu li#girl_sub.with-sub div.nav-sub div div.r a div.size-block div.t div h3")).click();
+}
+
+public void gotoDonate(WebDriver driver){
+	driver.get("http://stage.schoola.com/stitch/requestbag/?q=v2");
+}
+
+public void gotoCustomShopPage(WebDriver driver){
+	driver.get("http://stage.schoola.com/customshop/");
 }
 
 }

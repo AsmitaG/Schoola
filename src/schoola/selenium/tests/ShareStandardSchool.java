@@ -22,7 +22,7 @@ public class ShareStandardSchool extends BaseSelenium  {
 	BrowserHelper browser = new BrowserHelper();
 	TakeScreenshots screen = new TakeScreenshots();
 	
-	@Test(priority=1)
+	@Test(priority=1,enabled=true)
 	public void ShareSchoolOnTwitter() throws IOException, InterruptedException{
 		navHelper.gotoStandardSchool(driver);
 		driver.findElement(By.linkText("Share")).click();		

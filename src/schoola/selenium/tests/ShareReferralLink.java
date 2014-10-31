@@ -28,6 +28,7 @@ public class ShareReferralLink extends BaseSelenium  {
 	@BeforeTest
 	public void Login() throws InterruptedException {
 		browserhelper.setUp(driver);
+		loginHelper.SignInClick(driver);
 		loginHelper.login(driver);
 	}
 	

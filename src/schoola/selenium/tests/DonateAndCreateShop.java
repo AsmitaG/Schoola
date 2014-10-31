@@ -1,6 +1,9 @@
 package schoola.selenium.tests;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -28,7 +31,7 @@ public class DonateAndCreateShop extends BaseSelenium{
 	public void DonateClothesHomePage() throws InterruptedException{
 		if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
-		driver.get("http://stage.schoola.com/stitch/requestbag/?q=v2");
+		navHelper.gotoDonate(driver);
 		Thread.sleep(2000);
 		driver.findElement(By.id("search-zip")).sendKeys("10001");
 		Thread.sleep(2000);
@@ -49,7 +52,11 @@ public class DonateAndCreateShop extends BaseSelenium{
 		driver.findElement(By.id("state_value")).sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
 		driver.findElement(By.id("team_value")).sendKeys("Pre-K");
-		driver.findElement(By.cssSelector("div.input-element.input-block > #email")).sendKeys("school@mailinator.com");
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+		Date date = new Date();	
+		String current_date = dateFormat.format(date);
+		String email = "school"+current_date+"@mailinator.com";
+		driver.findElement(By.cssSelector("div.input-element.input-block > #email")).sendKeys(email);
 		driver.findElement(By.id("send-bag-btn")).click();
 		Thread.sleep(2000);
 		String confirmation1 = driver.findElement(By.xpath(".//*[@id='s-body']/div[2]/div[2]/div/h2")).getText();		
@@ -87,7 +94,11 @@ public class DonateAndCreateShop extends BaseSelenium{
 		Thread.sleep(2000);
 		driver.findElement(By.id("state_value")).sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("div.input-element.input-block > #email")).sendKeys("school1@mailinator.com");
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+		Date date = new Date();	
+		String current_date = dateFormat.format(date);
+		String email = "school"+current_date+"@mailinator.com";
+		driver.findElement(By.cssSelector("div.input-element.input-block > #email")).sendKeys(email);
 		driver.findElement(By.id("send-bag-btn")).click();
 		
 		Thread.sleep(2000);
@@ -102,7 +113,7 @@ public class DonateAndCreateShop extends BaseSelenium{
 	
 	@Test(priority=3,enabled=true)
 	public void CreateCustomShop() throws InterruptedException{
-		driver.get("http://stage.schoola.com/customshop/");
+		navHelper.gotoCustomShopPage(driver);
 		driver.findElement(By.xpath(".//*[@id='s-body']/div/div[2]/a[2]")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.id("grownup_name")).sendKeys("My Child");

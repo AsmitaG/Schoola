@@ -1,34 +1,89 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
  
-<suite name="Suite" parallel="false" preserve-order="true">
+<suite name="Suite" parallel="false" preserve-order="true"> 
  
+	 <test name="TestPlayVideo"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.PlayVideo" /> 	 
+	 </classes> 
+	 </test>
  
-  <test name="test2">
- <parameter name="browser" value="firefox" />
- <classes>
- 	 <class name="schoola.selenium.tests.ShareReferralLink" />
- </classes>
- </test>
+	 <test name="TestShareReferral"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.ShareReferralLink" />
+	 </classes> 
+	 </test>
  
-   <test name="test3">
- <parameter name="browser" value="firefox" />
- <classes>
- 	 <class name="schoola.selenium.tests.ShareFeatureSchool" />
- </classes>
- </test>
+	 <test name="TestGirlsMenu"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.GirlsMenuUI" />
+	 </classes> 
+	 </test>
  
-    <test name="test4">
- <parameter name="browser" value="firefox" />
- <classes>
- 	 <class name="schoola.selenium.tests.ShareStandardSchool" />
- </classes>
- </test>
+	 <test name="TestShareFeatureSchool"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.ShareFeatureSchool" />
+	 </classes> 
+	 </test>
  
-     <test name="test5">
- <parameter name="browser" value="firefox" />
- <classes>
- 	 <class name="schoola.selenium.tests.DonateAndCreateShop" />
- </classes>
- </test>
+	 <test name="TestBoysMenu"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.BoysMenuUI" />
+	 </classes> 
+	 </test>
+ 
+	 <test name="TestCollectionMenu"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.CollectionMenu" />
+	 </classes> 
+	 </test>
+ 
+	 <test name="TestShareStandardSchool"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.ShareStandardSchool" />
+	 </classes> 
+	 </test>
+ 
+	 <test name="TestSchoolMenu"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.SchoolMenu" />
+	 </classes> 
+	 </test>
+ 
+	 <test name="TestHomePageBodyLinks"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.HomepageBodyLinks" />
+	 </classes> 
+	 </test>
+ 
+	 <test name="TestHomePageFooterLinks"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.HomePageFooterLinks" />
+	 </classes> 
+	 </test>
+  
+	 <test name="TestDonateAndCreate"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.DonateAndCreateShop" />
+	 </classes> 
+	 </test>
+ 
+	 <test name="TestFilterItems"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.FilterItems" />
+	 </classes> 
+ 	 </test>
  
 </suite>
