@@ -50,20 +50,6 @@ public class DirectorySettings {
 		return snapshotPath;
 	}
 	
-	public String getPath6ForSnapshot(){
-		snapshotPath = prop.getProperty("path6");
-		return snapshotPath;
-	}
-	
-	public String getPath7ForSnapshot(){
-		snapshotPath = prop.getProperty("path7");
-		return snapshotPath;
-	}
-	
-	public String getPath8ForSnapshot(){
-		snapshotPath = prop.getProperty("path8");
-		return snapshotPath;
-	}
 	
 
 

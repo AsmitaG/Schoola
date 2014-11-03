@@ -7,7 +7,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import schoola.selenium.Properties.Itemcode;
 
 public class PurchaseHelpers  {
 	
@@ -47,26 +50,26 @@ driver.findElement(By.id("checkout-button")).click();
 }
 
 public void bagit(WebDriver driver){
-driver.findElement(By.cssSelector("html body.stitch div.img-screen div.s-container div.s-container div#s-body div.primary-block div.item-detail-wrapper div.similar-block div#quick_look_data.quick-preview div.qp-info-block div.qp-info a.btn")).click();
+driver.findElement(By.cssSelector("div#quick_look_data.quick-preview div.qp-info-block div.qp-info a.btn.btn-primary")).click();
 }
 
 public void quickview(WebDriver driver) throws InterruptedException {
-//driver.findElement(By.cssSelector("html body.stitch div.img-screen div.s-container div.s-container div#s-body div.primary-block div.item-detail-wrapper div.similar-block div.list ul li div.xs-card div.quick-look div a.btn")).click();
-	WebElement hover=driver.findElement(By.cssSelector("html body.stitch div.img-screen div#hp-content.s-container div.stuff-block div.card-block div.bx-wrapper div.bx-viewport div.bxslider div.s-card div.card-img-block div.quick-look a.layer"));
-	//WebElement hover1=driver.findElement(By.cssSelector("html body.stitch div.img-screen div#hp-content.s-container div.stuff-block div.card-block div.bx-wrapper div.bx-viewport div.bxslider div.s-card div.card-img-block div.quick-look div a.btn"));
-	Actions Builder = new Actions(driver);
-	Builder.moveToElement(hover).perform();
-	WebDriverWait wait = new WebDriverWait(driver, 20);
-	WebElement quick = driver.findElement(By.linkText("Quick Look"));
-	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)");
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+    js.executeScript("var elem = document.getElementsByClassName('quick-look');for(var i=0; i< elem.length; i++){elem[i].style['display']='block';}");
+       Thread.sleep(2000);
+    driver.findElement(By.linkText("Quick Look")).click();
+}
+
+public void shoppingbag(WebDriver driver) throws InterruptedException {
+	// TODO Auto-generated method stub
+
+	driver.findElement(By.cssSelector("div#persistent-cart-w section div.persistent-cart-block a.shopping-cart")).click();
 	
-	//wait.until(ExpectedConditions.visibilityOf(quick));
-	//Builder.moveToElement(hover1).build().perform();
-	//Thread.sleep(1000);
-	quick.click();
 }
 
 public void schoolclick(WebDriver driver){
 driver.findElement(By.cssSelector("html body.stitch div.img-screen div.s-container div#s-body section#featured div.bx-wrapper div.bx-viewport ul.carousel li div.carousel-item div.img-block a img")).click();
+
 }
+
 }

@@ -45,4 +45,9 @@ String successmsg=driver.findElement(By.cssSelector("html body.stitch div.img-sc
 return successmsg;
 }
 
+public String BagItitemTitle(WebDriver driver){
+	String actualitemTitle = driver.findElement(By.cssSelector("div#quick_look_data.quick-preview div.qp-info-block div.qp-info h3")).getText();
+	return actualitemTitle;
+}
+
 }

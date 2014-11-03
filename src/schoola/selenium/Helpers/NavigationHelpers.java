@@ -6,7 +6,9 @@ import org.openqa.selenium.interactions.Actions;
 public class NavigationHelpers {
 
 public void gotoGirlsMenu(WebDriver driver){
-	driver.findElement(By.cssSelector("#girl_sub .menu_overlay")).click();
+	WebElement hover=driver.findElement(By.linkText("GIRLS"));
+	Actions Builder = new Actions(driver);
+	Builder.moveToElement(hover).build().perform();
 }
 
 public void gotoBoysMenu(WebDriver driver){
@@ -29,7 +31,9 @@ public void gotoCollection(WebDriver driver,int number){
 }
 
 public void gotoSchool(WebDriver driver){
-	driver.findElement(By.linkText("Schools")).click();
+	WebElement hover1=driver.findElement(By.linkText("SCHOOLS"));
+	Actions Builder = new Actions(driver);
+	Builder.moveToElement(hover1).click().build().perform();
 }
 
 public void gotoReferralLink(WebDriver driver){

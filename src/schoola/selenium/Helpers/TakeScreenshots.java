@@ -12,7 +12,8 @@ import schoola.selenium.Properties.DirectorySettings;
 
 public class TakeScreenshots {
 	DirectorySettings dir = new DirectorySettings();
-	public void takeScreenshot(WebDriver driver,String filename) throws IOException{
+	
+public void takeScreenshot(WebDriver driver,String filename) throws IOException{
 		
 		
 		String path=dir.getPathForSnapshot();
@@ -22,7 +23,7 @@ public class TakeScreenshots {
 		System.out.println(path);
 		FileUtils.copyFile(scrFile, new File(path));
 	}
-	
+
 public void takeScreenshot1(WebDriver driver,String filename) throws IOException{
 		
 		
@@ -73,33 +74,5 @@ public void takeScreenshot5(WebDriver driver,String filename) throws IOException
 	System.out.println(path5);
 	FileUtils.copyFile(scrFile, new File(path5));
 }
-
-public void takeScreenshot6(WebDriver driver,String filename) throws IOException{
-	
-	String path6 = dir.getPath6ForSnapshot();
-	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	path6 = path6 + "\\"+ filename;
-	System.out.println(path6);
-	FileUtils.copyFile(scrFile, new File(path6));
-}
-
-public void takeScreenshot7(WebDriver driver,String filename) throws IOException{
-	
-	String path7 = dir.getPath7ForSnapshot();
-	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	path7 = path7 + "\\"+ filename;
-	System.out.println(path7);
-	FileUtils.copyFile(scrFile, new File(path7));
-}
-
-public void takeScreenshot8(WebDriver driver,String filename) throws IOException{
-	
-	String path8 = dir.getPath8ForSnapshot();
-	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	path8 = path8 + "\\"+ filename;
-	System.out.println(path8);
-	FileUtils.copyFile(scrFile, new File(path8));
-}
-	
 	
 }
