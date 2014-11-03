@@ -59,10 +59,11 @@ public class SocialNWLoginHelpers {
 	public void clickFBOrTWShare_button(WebDriver driver,int n){
 		//driver.findElement(By.linkText("Share")).click();		
 		//driver.findElement(By.id("user_name")).sendKeys("TestUser");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		if (n==1)
 			driver.findElement(By.cssSelector("a.btn.btn-facebook > strong")).click();
 		else
-			driver.findElement(By.id("twbtn")).click();
+			driver.findElement(By.cssSelector("a.btn.btn-twitter > strong")).click();
 	}
 	
 	public void shareOnTwitter(WebDriver driver){
