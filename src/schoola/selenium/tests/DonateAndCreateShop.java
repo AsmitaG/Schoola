@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -192,24 +193,6 @@ public class DonateAndCreateShop extends BaseSelenium{
 	}
 	
 	@Test(priority=5,enabled=true)
-	public void ShareShopOnFacebook() throws InterruptedException, IOException{
-		driver.findElement(By.id("share")).click();
-		socialnwHelper.clickFBOrTWShare_button(driver, 1);
-		snap.takeScreenshot(driver,"customShopFB.png");
-		socialnwHelper.shareOnFacebook(driver);
-		Thread.sleep(5000);
-		String fbUrl = socialnwHelper.Get_SharedFacebookUrl(driver);
-		softAssert.assertTrue(fbUrl.contains("utm_source="+utmparam.get_utmSourceSchoolFB()) , "Shared Facebook URL  does not contain correct utm_source parameter value");	  
-		softAssert.assertTrue(fbUrl.contains("utm_medium="+utmparam.get_utmMediumShopFB()) , "Shared Facebook URL  does not contain correct utm_medium parameter value");
-		softAssert.assertTrue(fbUrl.contains("utm_campaign="+utmparam.get_utmCampaignShopFB()) , "Shared Facebook URL  does not contain correct utm_campaign parameter");
-		softAssert.assertTrue(fbUrl.contains(uniqueShopId) , "Shared Facebook URL  does not contain correct shopid");
-		softAssert.assertAll();
-		
-		driver.navigate().back();
-		Thread.sleep(2000);
-	}
-	
-	@Test(priority=6,enabled=true)
 	public void ShareShopOnTwitter() throws InterruptedException, IOException{
 		driver.findElement(By.id("share")).click();
 		socialnwHelper.clickFBOrTWShare_button(driver, 2);
@@ -217,14 +200,36 @@ public class DonateAndCreateShop extends BaseSelenium{
 		snap.takeScreenshot(driver,"customShopTW.png");
 		Thread.sleep(5000);
 		String twUrl = socialnwHelper.get_sharedTwitterURl(driver);
+		System.out.println(twUrl);
 		softAssert.assertTrue(twUrl.contains("utm_source="+utmparam.get_utmSourceShopTW()) , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
 		softAssert.assertTrue(twUrl.contains("utm_medium="+utmparam.get_utmMediumShopTW()) , "Shared Twitter URL  does not contain correct utm_medium parameter value");
-		softAssert.assertTrue(twUrl.contains("utm_campaign="+utmparam.get_utmCampaignSchoolTW()) , "Shared Twitter URL  does not contain correct utm_campaign parameter");
+		softAssert.assertTrue(twUrl.contains("utm_campaign="+utmparam.get_utmCampaignShopTW()) , "Shared Twitter URL  does not contain correct utm_campaign parameter");
 		softAssert.assertTrue(twUrl.contains(uniqueShopId) , "Shared Twitter URL  does not contain correct shopid");
+		softAssert.assertAll();
+			
+		Thread.sleep(2000);
+	}
+	
+	@Test(priority=6,enabled=true)
+	public void ShareShopOnFacebook() throws InterruptedException, IOException{
+		driver.navigate().back();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.findElement(By.id("share")).click();
+		socialnwHelper.clickFBOrTWShare_button(driver, 1);
+		snap.takeScreenshot(driver,"customShopFB.png");
+		socialnwHelper.shareOnFacebook(driver);
+		Thread.sleep(5000);
+		String fbUrl = socialnwHelper.Get_SharedFacebookUrl(driver);
+		System.out.println(fbUrl);
+		softAssert.assertTrue(fbUrl.contains("utm_source="+utmparam.get_utmSourceSchoolFB()) , "Shared Facebook URL  does not contain correct utm_source parameter value");	  
+		softAssert.assertTrue(fbUrl.contains("utm_medium="+utmparam.get_utmMediumShopFB()) , "Shared Facebook URL  does not contain correct utm_medium parameter value");
+		softAssert.assertTrue(fbUrl.contains("utm_campaign="+utmparam.get_utmCampaignShopFB()) , "Shared Facebook URL  does not contain correct utm_campaign parameter");
+		softAssert.assertTrue(fbUrl.contains(uniqueShopId) , "Shared Facebook URL  does not contain correct shopid");
 		softAssert.assertAll();
 		
 		Thread.sleep(2000);
 	}
+	
 	
 	@AfterTest
     public void closeWindow(){
