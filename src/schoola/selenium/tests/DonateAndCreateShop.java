@@ -17,11 +17,13 @@ import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
 import schoola.selenium.Helpers.TakeScreenshots;
+import schoola.selenium.Properties.UTMParameters;
 
 public class DonateAndCreateShop extends BaseSelenium{
 	NavigationHelpers navHelper=new NavigationHelpers();
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();
+	UTMParameters utmparam = new UTMParameters();
 	SoftAssert softAssert = new SoftAssert();
 	BrowserHelper browser = new BrowserHelper();
 	TakeScreenshots snap = new TakeScreenshots();
@@ -197,9 +199,9 @@ public class DonateAndCreateShop extends BaseSelenium{
 		socialnwHelper.shareOnFacebook(driver);
 		Thread.sleep(5000);
 		String fbUrl = socialnwHelper.Get_SharedFacebookUrl(driver);
-		softAssert.assertTrue(fbUrl.contains("utm_source=facebook") , "Shared Facebook URL  does not contain correct utm_source parameter value");	  
-		softAssert.assertTrue(fbUrl.contains("utm_medium=share") , "Shared Facebook URL  does not contain correct utm_medium parameter value");
-		softAssert.assertTrue(fbUrl.contains("utm_campaign=custom-shop") , "Shared Facebook URL  does not contain correct utm_campaign parameter");
+		softAssert.assertTrue(fbUrl.contains("utm_source="+utmparam.get_utmSourceSchoolFB()) , "Shared Facebook URL  does not contain correct utm_source parameter value");	  
+		softAssert.assertTrue(fbUrl.contains("utm_medium="+utmparam.get_utmMediumShopFB()) , "Shared Facebook URL  does not contain correct utm_medium parameter value");
+		softAssert.assertTrue(fbUrl.contains("utm_campaign="+utmparam.get_utmCampaignShopFB()) , "Shared Facebook URL  does not contain correct utm_campaign parameter");
 		softAssert.assertTrue(fbUrl.contains(uniqueShopId) , "Shared Facebook URL  does not contain correct shopid");
 		softAssert.assertAll();
 		
@@ -215,9 +217,9 @@ public class DonateAndCreateShop extends BaseSelenium{
 		snap.takeScreenshot(driver,"customShopTW.png");
 		Thread.sleep(5000);
 		String twUrl = socialnwHelper.get_sharedTwitterURl(driver);
-		softAssert.assertTrue(twUrl.contains("utm_source=twitter") , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
-		softAssert.assertTrue(twUrl.contains("utm_medium=share") , "Shared Twitter URL  does not contain correct utm_medium parameter value");
-		softAssert.assertTrue(twUrl.contains("utm_campaign=custom-shop") , "Shared Twitter URL  does not contain correct utm_campaign parameter");
+		softAssert.assertTrue(twUrl.contains("utm_source="+utmparam.get_utmSourceShopTW()) , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
+		softAssert.assertTrue(twUrl.contains("utm_medium="+utmparam.get_utmMediumShopTW()) , "Shared Twitter URL  does not contain correct utm_medium parameter value");
+		softAssert.assertTrue(twUrl.contains("utm_campaign="+utmparam.get_utmCampaignSchoolTW()) , "Shared Twitter URL  does not contain correct utm_campaign parameter");
 		softAssert.assertTrue(twUrl.contains(uniqueShopId) , "Shared Twitter URL  does not contain correct shopid");
 		softAssert.assertAll();
 		

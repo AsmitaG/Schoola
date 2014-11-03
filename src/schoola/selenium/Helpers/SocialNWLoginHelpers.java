@@ -33,11 +33,15 @@ public class SocialNWLoginHelpers {
 	
 	public String Get_SharedFacebookUrl(WebDriver driver) throws IOException{
 		driver.get("www.facebook.com");	
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		takeScreenshot.takeScreenshot(driver, "ShareReferralFB3.png");
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.findElement(By.linkText(userEmail.get_fbusername())).click();
+		
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		//driver.findElement(By.xpath(".//*[@id='blueBarNAXAnchor']/div[1]/div/div/div[1]/ul/li[1]/a")).click();
-		driver.findElement(By.cssSelector("div._6l-.__c_")).click();
+		//driver.findElement(By.cssSelector("div._6l-.__c_")).click();
+		
+		driver.findElement(By.cssSelector("a._52c6")).click();		
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();

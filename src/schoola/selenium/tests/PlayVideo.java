@@ -10,6 +10,7 @@ import org.testng.asserts.SoftAssert;
 
 import schoola.selenium.Base.BaseSelenium;
 import schoola.selenium.Helpers.BrowserHelper;
+import schoola.selenium.Helpers.TakeScreenshots;
 import schoola.selenium.Helpers.VideoPageHelpers;
 import schoola.selenium.Properties.VideoUrls;
 
@@ -19,15 +20,18 @@ public class PlayVideo extends BaseSelenium {
 	VideoPageHelpers video2 = new VideoPageHelpers();
 	SoftAssert softAssert = new SoftAssert();
 	BrowserHelper browserHelper=new BrowserHelper();
+	TakeScreenshots takeScreenshot = new TakeScreenshots();
 	
 @Test(priority=1)
 public void TestVideoSaveArt() throws InterruptedException, IOException{
 	driver.get(video1.SaveArtUrl());
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	takeScreenshot.takeScreenshot(driver, "PlayVideo1.png");
 	video2.PlayVideobutton(driver);
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	
     Thread.sleep(2000);
+    takeScreenshot.takeScreenshot(driver, "PlayVideo2.png");
 	driver.switchTo().frame("yt-player");
 	WebElement Playbutton = video2.PlayVideoOnOff(driver);
 	String playValue = Playbutton.getAttribute("aria-label");
@@ -46,10 +50,12 @@ public void TestVideoSaveArt() throws InterruptedException, IOException{
 public void TestVideoSavePE() throws InterruptedException, IOException{
 	driver.get(video1.SavePEUrl());
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    takeScreenshot.takeScreenshot(driver, "PlayVideo3.png");
 	video2.PlayVideobutton(driver);
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	
     Thread.sleep(2000);
+    takeScreenshot.takeScreenshot(driver, "PlayVideo4.png");
 	driver.switchTo().frame("yt-player");
 	WebElement Playbutton = video2.PlayVideoOnOff(driver);
 	String playValue = Playbutton.getAttribute("aria-label");
@@ -68,10 +74,12 @@ public void TestVideoSavePE() throws InterruptedException, IOException{
 public void TestVideoSaveMusic() throws InterruptedException, IOException{
 	driver.get(video1.SaveMusicUrl());
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    takeScreenshot.takeScreenshot(driver, "PlayVideo5.png");
 	video2.PlayVideobutton(driver);
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	
     Thread.sleep(2000);
+    takeScreenshot.takeScreenshot(driver, "PlayVideo6.png");
 	driver.switchTo().frame("yt-player");
 	WebElement Playbutton = video2.PlayVideoOnOff(driver);
 	String playValue = Playbutton.getAttribute("aria-label");

@@ -12,6 +12,7 @@ import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.SocialNWLoginHelpers;
 import schoola.selenium.Helpers.TakeScreenshots;
+import schoola.selenium.Properties.UTMParameters;
 
 public class ShareStandardSchool extends BaseSelenium  {
 	
@@ -19,6 +20,7 @@ public class ShareStandardSchool extends BaseSelenium  {
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();
 	SoftAssert softAssert = new SoftAssert();
+	UTMParameters utmparam = new UTMParameters();
 	BrowserHelper browser = new BrowserHelper();
 	TakeScreenshots screen = new TakeScreenshots();
 	
@@ -34,9 +36,9 @@ public class ShareStandardSchool extends BaseSelenium  {
 		String TWUrl = socialnwHelper.get_sharedTwitterURl(driver);
 		System.out.println(" Shared TW URL : "+TWUrl);
 		
-		softAssert.assertTrue(TWUrl.contains("utm_source=twitter") , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
-		softAssert.assertTrue(TWUrl.contains("utm_medium=share") , "Shared Twitter URL  does not contain correct utm_medium parameter value");
-		softAssert.assertTrue(TWUrl.contains("utm_campaign=school-page") , "Shared Twitter URL  does not contain correct utm_campaign parameter");
+		softAssert.assertTrue(TWUrl.contains("utm_source="+utmparam.get_utmSourceSchoolTW()) , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
+		softAssert.assertTrue(TWUrl.contains("utm_medium="+utmparam.get_utmMediumSchoolTW()) , "Shared Twitter URL  does not contain correct utm_medium parameter value");
+		softAssert.assertTrue(TWUrl.contains("utm_campaign="+utmparam.get_utmCampaignSchoolTW()) , "Shared Twitter URL  does not contain correct utm_campaign parameter");
 		
 		softAssert.assertAll();
 		Thread.sleep(5000);
@@ -54,9 +56,9 @@ public class ShareStandardSchool extends BaseSelenium  {
 		String FBUrl = socialnwHelper.Get_SharedFacebookUrl(driver);
 		System.out.println(" Shared FB URL : "+FBUrl);
 		
-		softAssert.assertTrue(FBUrl.contains("utm_source=facebook") , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
-		softAssert.assertTrue(FBUrl.contains("utm_medium=share") , "Shared Twitter URL  does not contain correct utm_medium parameter value");
-		softAssert.assertTrue(FBUrl.contains("utm_campaign=school-page") , "Shared Twitter URL  does not contain correct utm_campaign parameter");
+		softAssert.assertTrue(FBUrl.contains("utm_source="+utmparam.get_utmSourceShopFB()) , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
+		softAssert.assertTrue(FBUrl.contains("utm_medium="+utmparam.get_utmMediumSchoolFB()) , "Shared Twitter URL  does not contain correct utm_medium parameter value");
+		softAssert.assertTrue(FBUrl.contains("utm_campaign="+utmparam.get_utmCampaignSchoolFB()) , "Shared Twitter URL  does not contain correct utm_campaign parameter");
 		
 		softAssert.assertAll();
 	}
