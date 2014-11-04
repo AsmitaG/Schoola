@@ -21,7 +21,7 @@ public class SchoolMenu extends BaseSelenium{
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
 		SoftAssert softAssert = new SoftAssert();
 		navHelper.hoverOnMenu(driver,"SCHOOLS");
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath("html/body/div[4]/header/div[4]/div/ul/li[4]/div/ul/li/a")).click();
 		Thread.sleep(2000);
 		
@@ -35,6 +35,7 @@ public class SchoolMenu extends BaseSelenium{
 	@Test(priority=2,enabled=true)
 	public void SearchSchoolZip() throws InterruptedException{
 		SoftAssert softAssert = new SoftAssert();
+		navHelper.gotoSchool(driver);
 		driver.findElement(By.id("school_search_text")).sendKeys("10001");
 		driver.findElement(By.id("findschool")).click();
 		Thread.sleep(5000);
@@ -61,7 +62,7 @@ public class SchoolMenu extends BaseSelenium{
 	@Test(priority=3,enabled=true)
 	public void SearchSchoolTown() throws InterruptedException{
 		SoftAssert softAssert = new SoftAssert();
-		driver.get("http://stage.schoola.com/schools");
+		navHelper.gotoSchool(driver);
 		Thread.sleep(5000);
 		driver.findElement(By.id("school_search_text")).clear();
 		driver.findElement(By.id("school_search_text")).sendKeys("Littleton");
@@ -96,7 +97,7 @@ public class SchoolMenu extends BaseSelenium{
 	public void SearchSchoolName() throws InterruptedException{
 		SoftAssert softAssert = new SoftAssert();
 		String schoolname ="Sheltering Arms Childrens Service";
-		driver.get("http://stage.schoola.com/schools");
+		navHelper.gotoSchool(driver);
 		Thread.sleep(5000);
 		driver.findElement(By.id("school_search_text")).clear();
 		driver.findElement(By.id("school_search_text")).sendKeys(schoolname);

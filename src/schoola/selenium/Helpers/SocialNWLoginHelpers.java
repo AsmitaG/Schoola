@@ -32,7 +32,8 @@ public class SocialNWLoginHelpers {
 	}
 	
 	public String Get_SharedFacebookUrl(WebDriver driver) throws IOException, InterruptedException{
-		//driver.get("www.facebook.com");	
+		driver.get("www.facebook.com");	
+		Thread.sleep(3000);
 		String fburl = "https://www.facebook.com/profile.php?id="+userEmail.get_fbuserid();
 		driver.get(fburl);
 		Thread.sleep(4000);

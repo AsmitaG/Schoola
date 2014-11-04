@@ -25,7 +25,7 @@ public class CollectionMenu extends BaseSelenium{
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"COLLECTIONS");
 		
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 		driver.findElement(By.cssSelector("li > a > img.menu-link-img")).click();
 		Thread.sleep(2000);
@@ -45,7 +45,7 @@ public class CollectionMenu extends BaseSelenium{
 	public void InStyle() throws InterruptedException{
 		navHelper.hoverOnMenu(driver,"COLLECTIONS");
 		SoftAssert softAssert = new SoftAssert();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 		driver.findElement(By.xpath("//img[@alt='InStyle Collection']")).click();
 		Thread.sleep(2000);
@@ -67,7 +67,7 @@ public class CollectionMenu extends BaseSelenium{
 		SoftAssert softAssert = new SoftAssert();
 		navHelper.hoverOnMenu(driver,"COLLECTIONS");
 		
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 		driver.findElement(By.xpath("//img[@alt='New with Tags']")).click();
 		Thread.sleep(2000);
@@ -89,7 +89,7 @@ public class CollectionMenu extends BaseSelenium{
 		SoftAssert softAssert = new SoftAssert();
 		navHelper.hoverOnMenu(driver,"COLLECTIONS");
 		
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 		driver.findElement(By.xpath("//img[@alt='Items we <3']")).click();
 		Thread.sleep(2000);
