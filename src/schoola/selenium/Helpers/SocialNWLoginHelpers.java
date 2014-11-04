@@ -31,17 +31,20 @@ public class SocialNWLoginHelpers {
 		driver.switchTo().window(parentWindow);
 	}
 	
-	public String Get_SharedFacebookUrl(WebDriver driver) throws IOException{
-		driver.get("www.facebook.com");	
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	public String Get_SharedFacebookUrl(WebDriver driver) throws IOException, InterruptedException{
+		//driver.get("www.facebook.com");	
+		String fburl = "https://www.facebook.com/profile.php?id="+userEmail.get_fbuserid();
+		driver.get(fburl);
+		Thread.sleep(4000);
 		takeScreenshot.takeScreenshot(driver, "ShareReferralFB3.png");
-		driver.findElement(By.linkText(userEmail.get_fbusername())).click();
+		//driver.findElement(By.linkText(userEmail.get_fbusername())).click();
 		
+		//driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		//driver.findElement(By.xpath(".//*[@id='blueBarNAXAnchor']/div[1]/div/div/div[1]/ul/li[1]/a")).click();
-		//driver.findElement(By.cssSelector("div._6l-.__c_")).click();
+		driver.findElement(By.cssSelector("div._6l-.__c_")).click();
 		
-		driver.findElement(By.cssSelector("a._52c6")).click();		
+		//driver.findElement(By.cssSelector("a._52c6")).click();		
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
@@ -63,7 +66,8 @@ public class SocialNWLoginHelpers {
 		if (n==1)
 			driver.findElement(By.cssSelector("a.btn.btn-facebook > strong")).click();
 		else
-			driver.findElement(By.cssSelector("a.btn.btn-twitter > strong")).click();
+			//driver.findElement(By.cssSelector("a.btn.btn-twitter > strong")).click();
+			driver.findElement(By.linkText("Share with Twitter")).click();
 	}
 	
 	public void shareOnTwitter(WebDriver driver){

@@ -17,7 +17,6 @@ public class Register extends BaseSelenium {
 	BrowserHelper browserHelper=new BrowserHelper();
 	LoginHelpers loginHelpers=new LoginHelpers();
 	UserEmail userdetails = new UserEmail();
-	SoftAssert softAssert = new SoftAssert();
 	
 	@BeforeTest
 	public void Login() throws InterruptedException {
@@ -27,6 +26,7 @@ public class Register extends BaseSelenium {
 	
 	@Test(priority=1)
 	public void testRegister() throws InterruptedException, IOException{
+		SoftAssert softAssert = new SoftAssert();
 		loginHelpers.SignInClick(driver);
 		loginHelpers.register(driver);	
 		loginHelpers.registersubmit(driver);
@@ -40,6 +40,7 @@ public class Register extends BaseSelenium {
 
 	@Test(priority=2)
 	public void testLogin() throws InterruptedException, IOException{
+		SoftAssert softAssert = new SoftAssert();
 		loginHelpers.SignInClick(driver);
 		loginHelpers.login(driver);
 		loginHelpers.loginsubmit(driver);

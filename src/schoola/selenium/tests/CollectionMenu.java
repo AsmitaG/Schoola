@@ -14,7 +14,6 @@ import schoola.selenium.Helpers.TakeScreenshots;
 
 public class CollectionMenu extends BaseSelenium{
 	NavigationHelpers navHelper=new NavigationHelpers();
-	SoftAssert softAssert = new SoftAssert();
 	TakeScreenshots shot = new TakeScreenshots();
 	BrowserHelper browser = new BrowserHelper();
 	
@@ -22,6 +21,7 @@ public class CollectionMenu extends BaseSelenium{
 	public void CustomShops() throws InterruptedException{
 		if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
+		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"COLLECTIONS");
 		
@@ -44,7 +44,7 @@ public class CollectionMenu extends BaseSelenium{
 	@Test(priority=2,enabled=true)
 	public void InStyle() throws InterruptedException{
 		navHelper.hoverOnMenu(driver,"COLLECTIONS");
-		
+		SoftAssert softAssert = new SoftAssert();
 		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath("//img[@alt='InStyle Collection']")).click();
@@ -64,6 +64,7 @@ public class CollectionMenu extends BaseSelenium{
 	
 	@Test(priority=3,enabled=true)
 	public void NewWithTag() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.hoverOnMenu(driver,"COLLECTIONS");
 		
 		Thread.sleep(3000);
@@ -85,6 +86,7 @@ public class CollectionMenu extends BaseSelenium{
 	
 	@Test(priority=4,enabled=true)
 	public void ItemsWeLove() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.hoverOnMenu(driver,"COLLECTIONS");
 		
 		Thread.sleep(3000);

@@ -18,12 +18,12 @@ public class PlayVideo extends BaseSelenium {
 	
 	VideoUrls video1 = new VideoUrls();
 	VideoPageHelpers video2 = new VideoPageHelpers();
-	SoftAssert softAssert = new SoftAssert();
 	BrowserHelper browserHelper=new BrowserHelper();
 	TakeScreenshots takeScreenshot = new TakeScreenshots();
 	
 @Test(priority=1)
 public void TestVideoSaveArt() throws InterruptedException, IOException{
+	SoftAssert softAssert = new SoftAssert();
 	driver.get(video1.SaveArtUrl());
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	takeScreenshot.takeScreenshot(driver, "PlayVideo1.png");
@@ -43,11 +43,13 @@ public void TestVideoSaveArt() throws InterruptedException, IOException{
 	System.out.println("Play button value :"+playValue);
 	Thread.sleep(5000);
 	softAssert.assertEquals(playValue,"Pause" , "SaveArt Page Video is not getting played");
+	softAssert.assertAll();
 	
 }
 
 @Test(priority=2)
 public void TestVideoSavePE() throws InterruptedException, IOException{
+	SoftAssert softAssert = new SoftAssert();
 	driver.get(video1.SavePEUrl());
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     takeScreenshot.takeScreenshot(driver, "PlayVideo3.png");
@@ -67,11 +69,12 @@ public void TestVideoSavePE() throws InterruptedException, IOException{
 	System.out.println("Play button value :"+playValue);
 	Thread.sleep(5000);
 	softAssert.assertEquals(playValue,"Pause" , "SaveArt Page Video is not getting played");
-	
+	softAssert.assertAll();
 }
 
 @Test(priority=3)
 public void TestVideoSaveMusic() throws InterruptedException, IOException{
+	SoftAssert softAssert = new SoftAssert();
 	driver.get(video1.SaveMusicUrl());
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     takeScreenshot.takeScreenshot(driver, "PlayVideo5.png");
@@ -91,7 +94,8 @@ public void TestVideoSaveMusic() throws InterruptedException, IOException{
 	System.out.println("Play button value :"+playValue);
 	Thread.sleep(5000);
 	softAssert.assertEquals(playValue,"Pause" , "SaveArt Page Video is not getting played");
-	
+	softAssert.assertAll();
+	softAssert.assertAll();
 }
 
 @AfterTest

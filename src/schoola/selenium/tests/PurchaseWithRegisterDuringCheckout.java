@@ -26,7 +26,7 @@ public class PurchaseWithRegisterDuringCheckout extends BaseSelenium {
 	CheckOutHelper checkoutHelper = new CheckOutHelper();
 	TakeScreenshots screenshot = new TakeScreenshots();
 	ItemClickHelper itemclick = new ItemClickHelper();
-	SoftAssert softAssert = new SoftAssert();
+	
 	 
 	@BeforeTest
 	  public void OpenSchoola() throws InterruptedException {
@@ -35,7 +35,8 @@ public class PurchaseWithRegisterDuringCheckout extends BaseSelenium {
 			
   @Test
   public void PuchasewithRegisterDuringCheckout() throws InterruptedException, IOException {
-		Thread.sleep(1000);
+	  	SoftAssert softAssert = new SoftAssert();
+	  	Thread.sleep(1000);
 		navHelper.gotoGirlsMenu(driver);
 		purchasehelpers.hoverItemClick(driver);
 		Thread.sleep(3000);

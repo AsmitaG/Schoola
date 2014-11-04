@@ -32,6 +32,7 @@ public class PurchaseWithInitialLogin extends BaseSelenium{
 	
 	@BeforeTest
   public void OpenSchoola() throws InterruptedException, IOException {
+		SoftAssert softAssert = new SoftAssert();
 		browserhelper.setUp(driver);
 		loginhelpers.SignInClick(driver);
 		Thread.sleep(2000);

@@ -20,7 +20,7 @@ public class FilterItems extends BaseSelenium {
 	 * @param args
 	 */
 	BrowserHelper browserHelper = new BrowserHelper();
-	SoftAssert softAssert = new SoftAssert();
+	
 	NavigationHelpers navHelper = new NavigationHelpers();	
 	FilterHelpers filterHelper = new FilterHelpers();
 	TakeScreenshots takeScreenshot = new TakeScreenshots();
@@ -32,6 +32,7 @@ public class FilterItems extends BaseSelenium {
 	
 	@Test(priority=1)
 	public void FilterByCategory() throws InterruptedException, IOException {
+		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver, "GIRLS");		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -72,7 +73,7 @@ public class FilterItems extends BaseSelenium {
 	
 	@Test(priority=2)
 	public void FilterByBrand() throws InterruptedException, IOException {
-		
+		SoftAssert softAssert = new SoftAssert();
 		String brand1 = filterHelper.brand_option1(driver);
 		System.out.println("Brand 1 :"+brand1);
 		Thread.sleep(2000);
@@ -93,6 +94,7 @@ public class FilterItems extends BaseSelenium {
 		Thread.sleep(2000);
 		heading = filterHelper.filterPageHeading(driver);		
 		
+		
 		currentSelection = filterHelper.currentSelections(driver);
 		softAssert.assertTrue(heading.contains(brand1.toUpperCase()), "On clicking Brand - "+brand1+" for Girls,Page heading did not match to brand name");
 		softAssert.assertEquals(currentSelection, brand1, "On clicking Brand -"+brand1+" , Your Selections does not match to selected brand name");
@@ -105,7 +107,7 @@ public class FilterItems extends BaseSelenium {
 	
 	@Test(priority=3)
 	public void FilterByPrice() throws InterruptedException, IOException {
-		
+		SoftAssert softAssert = new SoftAssert();
 		String price1 = filterHelper.price_option1(driver);
 		System.out.println("Price 1 :"+price1);
 		Thread.sleep(2000);
@@ -137,7 +139,7 @@ public class FilterItems extends BaseSelenium {
 	
 	@Test(priority=4)
 	public void FilterByColor() throws InterruptedException, IOException {
-		
+		SoftAssert softAssert = new SoftAssert();
 		String color1 = filterHelper.color_option1(driver);
 		System.out.println("Color1 :"+color1);
 		Thread.sleep(2000);
@@ -167,7 +169,7 @@ public class FilterItems extends BaseSelenium {
 	
 	@Test(priority=5)
 	public void FilterByCondition() throws InterruptedException, IOException {
-		
+		SoftAssert softAssert = new SoftAssert();
 		String condition1 = filterHelper.condition_option1(driver);
 		System.out.println("Condition1 :"+condition1);
 		Thread.sleep(2000);
@@ -197,7 +199,7 @@ public class FilterItems extends BaseSelenium {
 	
 	@Test(priority=6)
 	public void FilterByLook() throws InterruptedException, IOException {
-		
+		SoftAssert softAssert = new SoftAssert();
 		String look1 = filterHelper.look_option1(driver);
 		System.out.println("Look1 :"+look1);
 		Thread.sleep(2000);
@@ -228,7 +230,7 @@ public class FilterItems extends BaseSelenium {
 	
 	@Test(priority=7)
 	public void FilterBySearch() throws InterruptedException, IOException {
-		
+		SoftAssert softAssert = new SoftAssert();
 		filterHelper.searchFilter(driver);
 		Thread.sleep(3000);
 		takeScreenshot.takeScreenshot(driver, "FilterBySearch1.png");

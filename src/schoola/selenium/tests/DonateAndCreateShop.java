@@ -25,7 +25,6 @@ public class DonateAndCreateShop extends BaseSelenium{
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();
 	UTMParameters utmparam = new UTMParameters();
-	SoftAssert softAssert = new SoftAssert();
 	BrowserHelper browser = new BrowserHelper();
 	TakeScreenshots snap = new TakeScreenshots();
 	String uniqueShopId;
@@ -34,6 +33,7 @@ public class DonateAndCreateShop extends BaseSelenium{
 	public void DonateClothesHomePage() throws InterruptedException{
 		if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotoDonate(driver);
 		Thread.sleep(2000);
 		driver.findElement(By.id("search-zip")).sendKeys("10001");
@@ -82,6 +82,7 @@ public class DonateAndCreateShop extends BaseSelenium{
 	
 	@Test(priority=2,enabled=true)
 	public void DonateClothesSchoolPage() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotoFeaturedSchool(driver);
 		driver.findElement(By.xpath("(//a[contains(text(),'Donate')])[2]")).click();
 		Thread.sleep(4000);
@@ -116,6 +117,7 @@ public class DonateAndCreateShop extends BaseSelenium{
 	
 	@Test(priority=3,enabled=true)
 	public void CreateCustomShop() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotoCustomShopPage(driver);
 		driver.findElement(By.xpath(".//*[@id='s-body']/div/div[2]/a[2]")).click();
 		Thread.sleep(5000);
@@ -171,6 +173,7 @@ public class DonateAndCreateShop extends BaseSelenium{
 	
 	@Test(priority=4,enabled=true)
 	public void VisitCustomShop() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		String ShopUrl = driver.findElement(By.xpath(".//*[@id='s-body']/div/div[1]/div[2]/p")).getText();
 		String[] part = ShopUrl.split("/");
 		uniqueShopId = part[1];
@@ -194,6 +197,7 @@ public class DonateAndCreateShop extends BaseSelenium{
 	
 	@Test(priority=5,enabled=true)
 	public void ShareShopOnTwitter() throws InterruptedException, IOException{
+		SoftAssert softAssert = new SoftAssert();
 		driver.findElement(By.id("share")).click();
 		socialnwHelper.clickFBOrTWShare_button(driver, 2);
 		socialnwHelper.shareOnTwitter(driver);
@@ -212,6 +216,7 @@ public class DonateAndCreateShop extends BaseSelenium{
 	
 	@Test(priority=6,enabled=true)
 	public void ShareShopOnFacebook() throws InterruptedException, IOException{
+		SoftAssert softAssert = new SoftAssert();
 		driver.navigate().back();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.id("share")).click();

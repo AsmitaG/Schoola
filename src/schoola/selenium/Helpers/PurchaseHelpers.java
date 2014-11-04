@@ -1,5 +1,6 @@
 package schoola.selenium.Helpers;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -37,7 +38,6 @@ driver.findElement(By.xpath(".//*[@id='s-body']/div/div[2]/div[1]/div/div[3]/div
 public void keepshopping1(WebDriver driver){
 driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 driver.findElement(By.cssSelector("html body.stitch div.img-screen div.s-container div#s-body div.clearfix div.c div.cart-block div.cart-detail div.btn-action a.btn")).click();
-///html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[2]/a
 }
 
 public void keepshopping2(WebDriver driver){
@@ -54,16 +54,17 @@ driver.findElement(By.cssSelector("div#quick_look_data.quick-preview div.qp-info
 }
 
 public void quickview(WebDriver driver) throws InterruptedException {
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-    js.executeScript("var elem = document.getElementsByClassName('quick-look');for(var i=0; i< elem.length; i++){elem[i].style['display']='block';}");
-       Thread.sleep(2000);
-    driver.findElement(By.linkText("Quick Look")).click();
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("var elem = document.getElementsByClassName('quick-look');for(var i=0; i< elem.length; i++){elem[i].style['display']='block';}");
+Thread.sleep(2000);
+}
+
+public void quicklookclick(WebDriver driver) throws InterruptedException {
+driver.findElement(By.linkText("Quick Look")).click();
 }
 
 public void shoppingbag(WebDriver driver) throws InterruptedException {
-	// TODO Auto-generated method stub
-
-	driver.findElement(By.cssSelector("div#persistent-cart-w section div.persistent-cart-block a.shopping-cart")).click();
+driver.findElement(By.cssSelector("div#persistent-cart-w section div.persistent-cart-block a.shopping-cart")).click();
 	
 }
 
@@ -72,4 +73,8 @@ driver.findElement(By.cssSelector("html body.stitch div.img-screen div.s-contain
 
 }
 
+public void removecartitem(WebDriver driver){
+driver.findElement(By.className("remove-cart-item")).click();
+
+}
 }

@@ -20,14 +20,13 @@ public class HomePageFooterLinks extends BaseSelenium{
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	UserEmail userEmail = new UserEmail();
 	LoginHelpers loginHelper = new LoginHelpers();
-	SoftAssert softAssert = new SoftAssert();
 	BrowserHelper browser = new BrowserHelper();
 	
 	@Test(priority=1,enabled=true)
 	public void HowSchoolaWorks() throws InterruptedException{
 		if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
-		
+		SoftAssert softAssert = new SoftAssert();
 		boolean link = driver.findElement(By.linkText("How Schoola Works")).isDisplayed();
 		driver.findElement(By.linkText("How Schoola Works")).click();
 		
@@ -46,6 +45,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=2,enabled=true)
 	public void OurStory() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -67,6 +67,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=3,enabled=true)
 	public void InthePress() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -90,6 +91,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=4,enabled=true)
 	public void JobsAtSchoola() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -125,6 +127,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 
 	@Test(priority=5,enabled=true)
 	public void BecomeAnAffiliate() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -149,6 +152,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=6,enabled=true)
 	public void TermsOfUse() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -173,6 +177,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=7,enabled=true)
 	public void PrivacyPolicy() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -197,6 +202,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=8,enabled=true)
 	public void DonateClothes() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -221,6 +227,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=9,enabled=true)
 	public void FindYourSchool() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -245,6 +252,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=14,enabled=true)
 	public void ReferAFriend() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -274,6 +282,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 
 	@Test(priority=10,enabled=true)
 	public void SchoolaOffers() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -298,6 +307,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=11,enabled=true)
 	public void GrabOurApp() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -328,6 +338,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 	
 	@Test(priority=12,enabled=true)
 	public void StoreCatalog() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -352,6 +363,7 @@ public class HomePageFooterLinks extends BaseSelenium{
 
 	@Test(priority=13,enabled=true)
 	public void SchoolaBlog() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();

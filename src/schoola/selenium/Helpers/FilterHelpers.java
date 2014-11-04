@@ -6,7 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class FilterHelpers {
 	
 	public void category1(WebDriver driver){
-		driver.findElement(By.cssSelector("div.search-sb div.filter-block ul.filter-sub-block li a.expander span.plus")).click();
+		driver.findElement(By.cssSelector("html body.stitch.search div.img-screen div.s-container div#s-body div.clearfix div.search-sb-w div.search-sb div.filter-block ul.filter-sub-block li a.expander span.plus")).click();
+		
 	}
 	
 	public String category1_option1(WebDriver driver){

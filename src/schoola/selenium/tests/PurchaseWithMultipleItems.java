@@ -26,7 +26,7 @@ public class PurchaseWithMultipleItems extends BaseSelenium{
 	CheckOutHelper checkoutHelper = new CheckOutHelper();
 	TakeScreenshots screenshot = new TakeScreenshots();
 	ItemClickHelper itemclick = new ItemClickHelper();
-	SoftAssert softAssert = new SoftAssert();
+	
 	
 	@BeforeTest
   public void OpenSchoola() throws InterruptedException, IOException {
@@ -40,6 +40,7 @@ public class PurchaseWithMultipleItems extends BaseSelenium{
   }
 	@Test
 public void PuchasewithMultipleitems() throws InterruptedException, IOException {
+	SoftAssert softAssert = new SoftAssert();
 	Thread.sleep(1000);
 	navHelper.gotoGirlsMenu(driver);
 	purchasehelpers.hoverItemClick(driver);
@@ -115,7 +116,7 @@ public void PuchasewithMultipleitems() throws InterruptedException, IOException 
  
 	String successmsg = assertionshelper.OrderSuccessMsg(driver);
 	System.out.println("Order success message:" +successmsg);
-	screenshot.takeScreenshot3(driver,"LOrderSuccessMessage.png");
+	screenshot.takeScreenshot3(driver,"OrderSuccessMessage.png");
 	softAssert.assertTrue(successmsg.contains("You'll soon receive a receipt for your purchase."), "Order Not Placed Successfully");
 	String messagesplit[] = successmsg.split(" ");
 	System.out.println("Your Order id is:" + messagesplit[4]);

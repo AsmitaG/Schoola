@@ -21,7 +21,8 @@ public class UserEmail {
 		private String twpwd;
 		private String storedEmail;
 		private String url;
-		private String get_fbusername;
+		private String fbusername;
+		private String fbuserid;
 		
 		public UserEmail() {	
 			try
@@ -90,9 +91,15 @@ public class UserEmail {
 		}
 		
 		public String get_fbusername() {
-			get_fbusername = prop.getProperty("fbusername");
-			return get_fbusername;
+			fbusername = prop.getProperty("fbusername");
+			return fbusername;
 		}
+		
+		public String get_fbuserid() {
+			fbuserid = prop.getProperty("fbuserid");
+			return fbuserid;
+		}
+
 
 
 }

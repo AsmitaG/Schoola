@@ -22,7 +22,7 @@ public class ShareReferralLink extends BaseSelenium  {
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();
 	UTMParameters utmparam = new UTMParameters();
-	SoftAssert softAssert = new SoftAssert();
+	
 	TakeScreenshots takeScreenshot = new TakeScreenshots();
 	
 	@BeforeTest
@@ -35,6 +35,7 @@ public class ShareReferralLink extends BaseSelenium  {
 	
 	@Test(priority=1)
 	public void ShareReferralOnFacebook() throws InterruptedException, IOException {
+	  SoftAssert softAssert = new SoftAssert();
 	  navHelper.gotoReferralLink(driver);
 	  socialnwHelper.clickFBOrTWShare_button(driver, 1);
 	  takeScreenshot.takeScreenshot(driver, "ShareReferralFB1.png");
@@ -55,6 +56,7 @@ public class ShareReferralLink extends BaseSelenium  {
 	
 	@Test(priority=2)
 	public void ShareSchoolOnTwitter() throws IOException, InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotoReferralLink(driver);
 		socialnwHelper.clickFBOrTWShare_button(driver, 2);
 		
@@ -69,7 +71,7 @@ public class ShareReferralLink extends BaseSelenium  {
 		
 		softAssert.assertAll();
 	}
-	@AfterTest(enabled=false)
+	@AfterTest
 	public void tearDown(){
 		browserhelper.tearDown(driver);
 	}

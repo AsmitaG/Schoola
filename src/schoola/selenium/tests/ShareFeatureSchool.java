@@ -22,11 +22,11 @@ public class ShareFeatureSchool extends BaseSelenium  {
 	UTMParameters utmparam = new UTMParameters();
 	TakeScreenshots snap = new TakeScreenshots();
 	BrowserHelper browser = new BrowserHelper();
-	SoftAssert softAssert = new SoftAssert();
 	
 	@Test(priority=1,enabled=true)
 	public void ShareSchoolOnTwitter() throws IOException, InterruptedException{
 		navHelper.gotoFeaturedSchool(driver);
+		SoftAssert softAssert = new SoftAssert();
 		driver.findElement(By.linkText("Share")).click();		
 		driver.findElement(By.id("user_name")).sendKeys("TestUser");
 		socialnwHelper.clickFBOrTWShare_button(driver, 2);
@@ -47,6 +47,7 @@ public class ShareFeatureSchool extends BaseSelenium  {
 	
 	@Test(priority=2,enabled=true)
 	public void ShareSchoolOnFacebook() throws InterruptedException, IOException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotoFeaturedSchool(driver);
 		driver.findElement(By.linkText("Share")).click();		
 		driver.findElement(By.id("user_name")).sendKeys("TestUser");
@@ -57,9 +58,9 @@ public class ShareFeatureSchool extends BaseSelenium  {
 		String FBUrl = socialnwHelper.Get_SharedFacebookUrl(driver);
 		System.out.println(" Shared FB URL : "+FBUrl);
 		
-		softAssert.assertTrue(FBUrl.contains("utm_source="+utmparam.get_utmSourceShopFB()) , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
-		softAssert.assertTrue(FBUrl.contains("utm_medium="+utmparam.get_utmMediumSchoolFB()) , "Shared Twitter URL  does not contain correct utm_medium parameter value");
-		softAssert.assertTrue(FBUrl.contains("utm_campaign="+utmparam.get_utmCampaignSchoolFB()) , "Shared Twitter URL  does not contain correct utm_campaign parameter");
+		softAssert.assertTrue(FBUrl.contains("utm_source="+utmparam.get_utmSourceShopFB()) , "Shared Facebook URL  does not contain correct utm_source parameter value");	  
+		softAssert.assertTrue(FBUrl.contains("utm_medium="+utmparam.get_utmMediumSchoolFB()) , "Shared Facebook URL  does not contain correct utm_medium parameter value");
+		softAssert.assertTrue(FBUrl.contains("utm_campaign="+utmparam.get_utmCampaignSchoolFB()) , "Shared Facebookr URL  does not contain correct utm_campaign parameter");
 		
 		softAssert.assertAll();
 	}

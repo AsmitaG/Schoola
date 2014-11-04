@@ -17,16 +17,16 @@ public class HomepageBodyLinks extends BaseSelenium{
 	NavigationHelpers navHelper=new NavigationHelpers();
 	SocialNWLoginHelpers socialnwHelper = new SocialNWLoginHelpers();
 	LoginHelpers loginHelper = new LoginHelpers();
-	SoftAssert softAssert = new SoftAssert();
 	BrowserHelper browser = new BrowserHelper();
 	
 	@Test(priority=1,enabled=true)
 	public void TestForFallBrand() throws InterruptedException{
 		if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
-		String brand = driver.findElement(By.xpath(".//*[@id='hp-content']/div[3]/div[2]/div/div[1]/ul[2]/li[1]/a")).getText();
+		SoftAssert softAssert = new SoftAssert();
+		String brand = driver.findElement(By.xpath("//div[@id='hp-content']/div[3]/div[2]/div/div/ul[2]/li/a")).getText();
 		brand = brand.toUpperCase();
-		driver.findElement(By.xpath(".//*[@id='hp-content']/div[3]/div[2]/div/div[1]/ul[2]/li[1]/a")).click();
+		driver.findElement(By.xpath("//div[@id='hp-content']/div[3]/div[2]/div/div/ul[2]/li/a")).click();
 		Thread.sleep(2000);
 		String brandPageTitle = driver.findElement(By.xpath(".//*[@id='s-body']/div[1]/h1")).getText();
 		Thread.sleep(2000);
@@ -44,6 +44,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 	@Test(priority=2,enabled=true)
 	public void TestForFallStyles() throws InterruptedException{
 		navHelper.gotohome(driver);
+		SoftAssert softAssert = new SoftAssert();
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		Thread.sleep(1000);
@@ -65,8 +66,9 @@ public class HomepageBodyLinks extends BaseSelenium{
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=3,enabled=true)
+	@Test(priority=3,enabled=false)
 	public void TestForDonateButton() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -91,8 +93,9 @@ public class HomepageBodyLinks extends BaseSelenium{
 		
 	}
 	
-	@Test(priority=4,enabled=true)
+	@Test(priority=4,enabled=false)
 	public void TestForShopButton() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		Thread.sleep(2000);
 		boolean button=driver.findElement(By.xpath("html/body/div[4]/header/div[2]/div/div/div[1]/div/div/a[2]")).isDisplayed();
@@ -115,6 +118,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 	
 	@Test(priority=5,enabled=true)
 	public void TestHowItWorks() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		Thread.sleep(2000);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
@@ -147,6 +151,7 @@ public class HomepageBodyLinks extends BaseSelenium{
 	
 	@Test(priority=6,enabled=true)
 	public void SeeTheirStory() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
@@ -165,8 +170,9 @@ public class HomepageBodyLinks extends BaseSelenium{
 		Thread.sleep(5000);
 	}
 
-	@Test(priority=7,enabled=true)
+	@Test(priority=7,enabled=false)
 	public void CustomShop() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
