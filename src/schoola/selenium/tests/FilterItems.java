@@ -3,6 +3,9 @@ package schoola.selenium.tests;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -11,6 +14,7 @@ import org.testng.asserts.SoftAssert;
 import schoola.selenium.Base.BaseSelenium;
 import schoola.selenium.Helpers.BrowserHelper;
 import schoola.selenium.Helpers.FilterHelpers;
+import schoola.selenium.Helpers.LoginHelpers;
 import schoola.selenium.Helpers.NavigationHelpers;
 import schoola.selenium.Helpers.TakeScreenshots;
 
@@ -40,9 +44,9 @@ public class FilterItems extends BaseSelenium {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		filterHelper.clearAllSelections(driver);		
 		
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);		
 		filterHelper.category1(driver);		
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String category1 = filterHelper.category1_option1(driver);		
 		System.out.println("category1 :"+category1);
 		Thread.sleep(3000);

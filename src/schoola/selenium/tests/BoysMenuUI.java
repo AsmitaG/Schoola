@@ -14,7 +14,6 @@ import schoola.selenium.Helpers.TakeScreenshots;
 
 public class BoysMenuUI extends BaseSelenium {
 	NavigationHelpers navHelper=new NavigationHelpers();
-	SoftAssert softAssert = new SoftAssert();
 	TakeScreenshots shot = new TakeScreenshots();
 	BrowserHelper browser = new BrowserHelper();
 	
@@ -23,7 +22,7 @@ public class BoysMenuUI extends BaseSelenium {
 		//navHelper.gotohome(driver);
 		if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
-		
+		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
 		Thread.sleep(5000);
@@ -64,7 +63,7 @@ public class BoysMenuUI extends BaseSelenium {
 	    boolean sectionOuterwearDisplayed = driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[2]/div[3]/div[2]/div/a")).isDisplayed();
 	    String sectionOuterwear = driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[2]/div[3]/div[2]/div/a")).getText();
 	    
-	    Thread.sleep(5000);
+	    Thread.sleep(2000);
 	    
 	    //Assertions
 	    softAssert.assertEquals(linkPreSchoolaDisplayed, true, "PresSchoola link is not disaplyed under boys menu");
@@ -96,18 +95,20 @@ public class BoysMenuUI extends BaseSelenium {
 	    
 	    softAssert.assertAll();
 	    
-	    Thread.sleep(5000);
+	    Thread.sleep(2000);
 	    
 	}
 
 	@Test(priority=2,enabled=true)
 	public void BoysPreSchoolaPage() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[1]/div/a[1]/div/div/div/h3")).click();
 		Thread.sleep(5000);
 		
@@ -127,7 +128,7 @@ public class BoysMenuUI extends BaseSelenium {
 	    softAssert.assertEquals(pagefilter, "Preschoola Boys All", "Filter is in correct");
 	    
 	    softAssert.assertAll();
-	    Thread.sleep(5000);
+	    Thread.sleep(2000);
 	}
 	
 	@Test(priority=3,enabled=true)
@@ -135,9 +136,10 @@ public class BoysMenuUI extends BaseSelenium {
 		//navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
+		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[1]/div/a[2]/div/div/div/h3")).click();
 		Thread.sleep(5000);
 		
@@ -164,10 +166,11 @@ public class BoysMenuUI extends BaseSelenium {
 		//navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
+		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[1]/div/a[3]/div/div/div/h3")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//li[2]/div/div/div/a[3]/div/div/div/h3")).click();
 		Thread.sleep(3000);
 		
 		//Get Title
@@ -193,9 +196,10 @@ public class BoysMenuUI extends BaseSelenium {
 		//navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
+		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[2]/div[1]/div[2]/a/img")).click();
 		Thread.sleep(4000);
 		
@@ -217,7 +221,7 @@ public class BoysMenuUI extends BaseSelenium {
 	    softAssert.assertEquals(pagefilter2, "Tops", "Filter is incorrect");
 	    
 	    softAssert.assertAll();
-	    Thread.sleep(5000);
+	    Thread.sleep(2000);
 	}
 
 	@Test(priority=6,enabled=true)
@@ -225,9 +229,10 @@ public class BoysMenuUI extends BaseSelenium {
 		//navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
+		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[2]/div[2]/div[2]/div/ul/li[3]/a")).click();
 		Thread.sleep(5000);
 		
@@ -254,6 +259,7 @@ public class BoysMenuUI extends BaseSelenium {
 	
 	@Test(priority=7,enabled=true)
 	public void Pagination() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		driver.get("http://stage.schoola.com/stitch/shop/boys-high-schoola");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(".//*[@id='s-body']/div[2]/div[3]/div/div[14]/ul/li[2]/a")).click();

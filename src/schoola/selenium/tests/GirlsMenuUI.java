@@ -14,7 +14,6 @@ import schoola.selenium.Helpers.TakeScreenshots;
 
 public class GirlsMenuUI extends BaseSelenium {
 	NavigationHelpers navHelper=new NavigationHelpers();
-	SoftAssert softAssert = new SoftAssert();
 	TakeScreenshots shot = new TakeScreenshots();
 	BrowserHelper browser = new BrowserHelper();
 	
@@ -23,9 +22,10 @@ public class GirlsMenuUI extends BaseSelenium {
 		//navHelper.gotohome(driver);
 		if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
+		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 	
 	    //pre-schoola
 	    boolean linkPreSchoolaDisplayed = driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[1]/div/div/div/h3")).isDisplayed();
@@ -98,6 +98,7 @@ public class GirlsMenuUI extends BaseSelenium {
 
 	@Test(priority=2,enabled=true)
 	public void girlsPreSchoolaPage() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
 		Thread.sleep(2000);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
@@ -105,7 +106,7 @@ public class GirlsMenuUI extends BaseSelenium {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[1]/div/div/div/h3")).click();
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		
 		//Get Title
 		String titlePreSchoolaPage = driver.getTitle();
@@ -127,12 +128,13 @@ public class GirlsMenuUI extends BaseSelenium {
 	
 	@Test(priority=3,enabled=true)
 	public void girlsGradeSchoolaPage() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		//navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[2]/div/div/div/h3")).click();
 		Thread.sleep(4000);
 		
@@ -157,13 +159,14 @@ public class GirlsMenuUI extends BaseSelenium {
 
 	@Test(priority=4,enabled=true)
 	public void girlsHighSchoolaPage() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		//navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[3]/div/div/div/h3")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[3]/div/div/div")).click();
 		Thread.sleep(4000);
 		
 		//Get Title
@@ -187,12 +190,13 @@ public class GirlsMenuUI extends BaseSelenium {
 
 	@Test(priority=5,enabled=true)
 	public void girlsTops() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		//navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[2]/div[1]/div[2]/a/img")).click();
 		Thread.sleep(4000);
 		
@@ -219,12 +223,13 @@ public class GirlsMenuUI extends BaseSelenium {
 
 	@Test(priority=6,enabled=true)
 	public void girlsBoots() throws InterruptedException{
+		SoftAssert softAssert = new SoftAssert();
 		//navHelper.gotohome(driver);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[2]/div[2]/div[2]/div/ul/li[3]/a")).click();
 		Thread.sleep(4000);
 		

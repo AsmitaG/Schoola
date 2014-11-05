@@ -2,24 +2,17 @@
  
 <suite name="Suite" parallel="false" preserve-order="true"> 
  
-	 <test name="TestPlayVideo"> 
+	 <test name="TestRegisterLogin"> 
 	 <parameter name="browser" value="firefox" /> 
 	 <classes>
-	 	 <class name="schoola.selenium.tests.PlayVideo" /> 	 
+	 	 <class name="schoola.selenium.tests.Register" /> 	 
 	 </classes> 
-	 </test>
+	 </test> 
  
-	 <test name="TestShareReferral"> 
+	 <test name="TestRegisterLogin1"> 
 	 <parameter name="browser" value="firefox" /> 
 	 <classes>
-	 	 <class name="schoola.selenium.tests.ShareReferralLink" />
-	 </classes> 
-	 </test>
- 
-	 <test name="TestGirlsMenu"> 
-	 <parameter name="browser" value="firefox" /> 
-	 <classes>
-	 	 <class name="schoola.selenium.tests.GirlsMenuUI" />
+	 	 <class name="schoola.selenium.tests.ShareReferralLink" /> 	 
 	 </classes> 
 	 </test>
  
@@ -30,24 +23,68 @@
 	 </classes> 
 	 </test>
  
+	 <test name="TestShareStandardSchool"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.ShareStandardSchool" />
+	 </classes> 
+	 </test>
+ 
+	<test name="TestPurchaseFlow1"> 
+	<parameter name="browser" value="firefox" /> 
+	<classes>
+		 <class name="schoola.selenium.tests.PurchaseWithInitialLogin" />
+	</classes>  
+	</test>
+ 
+	 <test name="TestPurchaseFlow2"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.PurchaseWithLoginDuringCheckout" />
+	 </classes> 
+	 </test>
+ 
+	 <test name="TestPurchaseFlow3"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.PurchaseWithMultipleItems" />
+	 </classes> 
+	 </test>
+ 
+	 <test name="TestPurchaseFlow4"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.PurchaseWithRegisterDuringCheckout" />
+	 </classes> 
+	 </test>
+	 
+	 <test name="TestPurchaseFlow5"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.BagIt" />
+	 </classes> 
+	 </test>
+ 		
+ 	<!--  	
 	 <test name="TestBoysMenu"> 
 	 <parameter name="browser" value="firefox" /> 
 	 <classes>
 	 	 <class name="schoola.selenium.tests.BoysMenuUI" />
 	 </classes> 
 	 </test>
- 
+	 
+	 <test name="TestBoysMenu"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.GirlsMenuUI" />
+	 </classes> 
+	 </test>
+ 	-->
+ 	
 	 <test name="TestCollectionMenu"> 
 	 <parameter name="browser" value="firefox" /> 
 	 <classes>
 	 	 <class name="schoola.selenium.tests.CollectionMenu" />
-	 </classes> 
-	 </test>
- 
-	 <test name="TestShareStandardSchool"> 
-	 <parameter name="browser" value="firefox" /> 
-	 <classes>
-	 	 <class name="schoola.selenium.tests.ShareStandardSchool" />
 	 </classes> 
 	 </test>
  
@@ -83,7 +120,14 @@
 	 <parameter name="browser" value="firefox" /> 
 	 <classes>
 	 	 <class name="schoola.selenium.tests.FilterItems" />
-	 </classes> 
- 	 </test>
+	 </classes>  
+	 </test>
  
+	 <test name="TestPlayVideo"> 
+	 <parameter name="browser" value="firefox" /> 
+	 <classes>
+	 	 <class name="schoola.selenium.tests.PlayVideo" />
+	 </classes>  
+	 </test>
+
 </suite>
