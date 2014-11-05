@@ -64,8 +64,7 @@
 	 	 <class name="schoola.selenium.tests.BagIt" />
 	 </classes> 
 	 </test>
- 		
- 	<!--  	
+ 			
 	 <test name="TestBoysMenu"> 
 	 <parameter name="browser" value="firefox" /> 
 	 <classes>
@@ -79,7 +78,6 @@
 	 	 <class name="schoola.selenium.tests.GirlsMenuUI" />
 	 </classes> 
 	 </test>
- 	-->
  	
 	 <test name="TestCollectionMenu"> 
 	 <parameter name="browser" value="firefox" /> 

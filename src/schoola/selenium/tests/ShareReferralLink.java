@@ -42,7 +42,7 @@ public class ShareReferralLink extends BaseSelenium  {
 	  
 	  socialnwHelper.shareOnFacebook(driver);	  
 	  String FBUrl = socialnwHelper.Get_SharedFacebookUrl(driver);	
-	  takeScreenshot.takeScreenshot(driver, "ShareReferralFB4.png");
+	  takeScreenshot.takeScreenshot(driver, "ShareReferralFB5.png");
 	  System.out.println(" Shared FB URL : "+FBUrl);
 	 
 	  softAssert.assertTrue(FBUrl.contains("utm_source="+utmparam.get_utmSourceFB()) , "Shared Facebook URL  does not contain correct utm_source parameter value");	  
@@ -64,7 +64,7 @@ public class ShareReferralLink extends BaseSelenium  {
 		
 		String TWUrl = socialnwHelper.get_sharedTwitterURl(driver);
 		System.out.println(" Shared Twitter URL : "+TWUrl);
-		takeScreenshot.takeScreenshot(driver, "ShareReferralTW3.png");
+		takeScreenshot.takeScreenshot(driver, "ShareReferralTW4.png");
 		softAssert.assertTrue(TWUrl.contains("utm_source="+utmparam.get_utmSourceTW()) , "Shared Twitter URL  does not contain correct utm_source parameter value");	  
 		softAssert.assertTrue(TWUrl.contains("utm_medium="+utmparam.get_utmMediumRefTW()) , "Shared Twitter URL  does not contain correct utm_medium parameter value");
 		softAssert.assertTrue(TWUrl.contains("utm_campaign="+utmparam.get_utmCampaignRefTW()) , "Shared Twitter URL  does not contain correct utm_campaign parameter");

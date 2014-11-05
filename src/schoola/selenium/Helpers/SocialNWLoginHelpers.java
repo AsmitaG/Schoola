@@ -14,7 +14,7 @@ public class SocialNWLoginHelpers {
 	UserEmail userEmail = new UserEmail();
 	TakeScreenshots takeScreenshot = new TakeScreenshots();
 	
-	public void shareOnFacebook(WebDriver driver) throws InterruptedException{
+	public void shareOnFacebook(WebDriver driver) throws InterruptedException, IOException{
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
 		for(String handle : windowHandles){
@@ -27,6 +27,7 @@ public class SocialNWLoginHelpers {
 		driver.findElement(By.id("pass")).sendKeys(userEmail.get_fbpwd());
 		driver.findElement(By.id("u_0_1")).click();
 		driver.findElement(By.id("feedform_user_message")).sendKeys("Test Post");
+		takeScreenshot.takeScreenshot(driver, "ShareReferralFB4.png");
 		driver.findElement(By.id("u_0_2")).click();
 		driver.switchTo().window(parentWindow);
 	}
@@ -36,7 +37,7 @@ public class SocialNWLoginHelpers {
 		Thread.sleep(3000);
 		String fburl = "https://www.facebook.com/profile.php?id="+userEmail.get_fbuserid();
 		driver.get(fburl);
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		takeScreenshot.takeScreenshot(driver, "ShareReferralFB3.png");
 		//driver.findElement(By.linkText(userEmail.get_fbusername())).click();
 		
@@ -71,7 +72,7 @@ public class SocialNWLoginHelpers {
 			driver.findElement(By.linkText("Share with Twitter")).click();
 	}
 	
-	public void shareOnTwitter(WebDriver driver){
+	public void shareOnTwitter(WebDriver driver) throws IOException{
 		String parentWindow = driver.getWindowHandle();
 		Set<String> windowHandles = driver.getWindowHandles();
 		for(String handle : windowHandles){
@@ -89,6 +90,7 @@ public class SocialNWLoginHelpers {
 		String current_date = date.toString();
 		tweet = tweet + "\n" + current_date;
 		driver.findElement(By.id("status")).sendKeys(tweet);
+		takeScreenshot.takeScreenshot(driver, "ShareReferralTW3.png");
 		driver.findElement(By.xpath("//input[@value='Sign in and Tweet']")).click();
 		driver.findElement(By.xpath("//input[@value='Tweet']")).click();
 		driver.switchTo().window(parentWindow);
