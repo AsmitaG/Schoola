@@ -25,7 +25,7 @@ public class GirlsMenuUI extends BaseSelenium {
 		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	
 	    //pre-schoola
 	    boolean linkPreSchoolaDisplayed = driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[1]/div/div/div/h3")).isDisplayed();
@@ -105,8 +105,9 @@ public class GirlsMenuUI extends BaseSelenium {
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[1]/div/div/div/h3")).click();
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titlePreSchoolaPage = driver.getTitle();
@@ -134,9 +135,9 @@ public class GirlsMenuUI extends BaseSelenium {
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[2]/div/div/div/h3")).click();
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titlegradeSchoolaPage = driver.getTitle();
@@ -165,9 +166,9 @@ public class GirlsMenuUI extends BaseSelenium {
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[1]/div/a[3]/div/div/div")).click();
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titleHighSchoolaPage = driver.getTitle();
@@ -196,9 +197,9 @@ public class GirlsMenuUI extends BaseSelenium {
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[2]/div[1]/div[2]/a/img")).click();
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titlePage = driver.getTitle();
@@ -229,9 +230,9 @@ public class GirlsMenuUI extends BaseSelenium {
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"GIRLS");
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='girl_sub']/div/div[2]/div[2]/div[2]/div/ul/li[3]/a")).click();
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titlePage = driver.getTitle();

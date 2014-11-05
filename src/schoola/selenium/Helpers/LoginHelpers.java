@@ -14,7 +14,7 @@ public class LoginHelpers {
 	
 	static UserEmail userdetails = new UserEmail();
 	static String  email=userdetails.get_schoolaemail()+"@"+userdetails.get_schemaildomain();
-	
+	NavigationHelpers navHelper = new NavigationHelpers();	
 public void SignInClick(WebDriver driver){
 		driver.findElement(By.id("loginColorBox")).click();	
 }
@@ -42,10 +42,13 @@ public void registersubmit(WebDriver driver) {
 	driver.findElement(By.id("register-user")).click();
 	}
 
-public void logout(WebDriver driver){
-	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	driver.findElement(By.linkText(userdetails.get_userfname()+" "+userdetails.get_userlname())).click();
-	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+public void logout(WebDriver driver) throws InterruptedException{
+	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	navHelper.hoverOnMenu(driver, userdetails.get_userfname()+" "+userdetails.get_userlname());	
+	//driver.findElement(By.linkText(userdetails.get_userfname()+" "+userdetails.get_userlname())).click();
+	
+	Thread.sleep(3000);
+	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	driver.findElement(By.linkText("SIGN OUT")).click();
 }
 

@@ -23,9 +23,9 @@ public class BoysMenuUI extends BaseSelenium {
 		if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			driver.findElement(By.cssSelector(".roadblock-close")).click();
 		SoftAssert softAssert = new SoftAssert();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    
 	    //pre-schoola
 	    boolean linkPreSchoolaDisplayed = driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[1]/div/a[1]/div/div/div/h3")).isDisplayed();
@@ -103,14 +103,14 @@ public class BoysMenuUI extends BaseSelenium {
 	public void BoysPreSchoolaPage() throws InterruptedException{
 		SoftAssert softAssert = new SoftAssert();
 		navHelper.gotohome(driver);
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		//if (driver.findElement(By.cssSelector(".roadblock-close")).isDisplayed())
 			//driver.findElement(By.cssSelector(".roadblock-close")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(4000);
-		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[1]/div/a[1]/div/div/div/h3")).click();
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.findElement(By.cssSelector("#boy_sub > div.nav-sub > div > div.r > a > div.size-block.first > div.t > div > h3")).click();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titlePreSchoolaPage = driver.getTitle();
@@ -139,9 +139,9 @@ public class BoysMenuUI extends BaseSelenium {
 		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[1]/div/a[2]/div/div/div/h3")).click();
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titlegradeSchoolaPage = driver.getTitle();
@@ -169,9 +169,9 @@ public class BoysMenuUI extends BaseSelenium {
 		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("//li[2]/div/div/div/a[3]/div/div/div/h3")).click();
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[1]/div/a[3]/div/div/div/h3")).click();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titleHighSchoolaPage = driver.getTitle();
@@ -199,9 +199,9 @@ public class BoysMenuUI extends BaseSelenium {
 		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[2]/div[1]/div[2]/a/img")).click();
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titlePage = driver.getTitle();
@@ -232,9 +232,9 @@ public class BoysMenuUI extends BaseSelenium {
 		SoftAssert softAssert = new SoftAssert();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		navHelper.hoverOnMenu(driver,"BOYS");
-		Thread.sleep(4000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='boy_sub']/div/div[2]/div[2]/div[2]/div/ul/li[3]/a")).click();
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		
 		//Get Title
 		String titlePage = driver.getTitle();
@@ -261,15 +261,15 @@ public class BoysMenuUI extends BaseSelenium {
 	public void Pagination() throws InterruptedException{
 		SoftAssert softAssert = new SoftAssert();
 		driver.get("http://stage.schoola.com/stitch/shop/boys-high-schoola");
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='s-body']/div[2]/div[3]/div/div[14]/ul/li[2]/a")).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		String page2 = driver.getCurrentUrl();
 		driver.findElement(By.xpath(".//*[@id='s-body']/div[2]/div[3]/div/div[14]/ul/li[3]/a")).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		String page3 = driver.getCurrentUrl();
 		driver.findElement(By.xpath(".//*[@id='s-body']/div[2]/div[3]/div/div[14]/ul/li[1]/a")).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		String page1 = driver.getCurrentUrl();
 		
 		softAssert.assertTrue(page2.contains("boys-high-schoola/page-2") , "Pagination not working");	  
